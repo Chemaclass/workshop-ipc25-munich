@@ -1,0 +1,15 @@
+.idea/
+.vscode/
+coverage/
+vendor/
+data/
+build/
+node_modules/
+coverage
+
+*.cache
+.DS_Store
+.phpstorm.meta.php
+composer.lock
+composer.phar
+pnpm-lock.yaml
