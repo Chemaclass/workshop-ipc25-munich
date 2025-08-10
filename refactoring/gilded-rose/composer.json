@@ -1,0 +1,38 @@
+{
+    "name": "emilybache/gilded-rose-refactoring-kata",
+    "description": "A kata to practice refactoring, tests and polymorphism",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3"
+    },
+    "require-dev": {
+        "approvals/approval-tests": "dev-Main",
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "symplify/easy-coding-standard": "^12.5",
+        "symplify/phpstan-extensions": "^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "GildedRose\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html build/coverage",
+        "check-cs": "ecs check",
+        "fix": "ecs check --fix",
+        "phpstan": "phpstan analyse --ansi"
+    },
+  "config": {
+    "platform": {
+      "php": "8.3"
+    }
+  }
+}
