@@ -1,6 +1,6 @@
 {
-    "name": "chemaclass/workshop-ipc25-munich-refactoring-tennis",
-    "description": "Tennis Refactoring Kata",
+    "name": "chemaclass/workshop-ipc25-munich-refactoring-parrot",
+    "description": "Kata to practice Pol(l)ymorphism",
     "license": "MIT",
     "require": {
         "php": "^8.3"
@@ -14,17 +14,16 @@
     },
     "autoload": {
         "psr-4": {
-            "TennisGame\\": "src/"
+            "Parrot\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "ParrotTests\\": "tests/"
         }
     },
     "scripts": {
-        "test": "@tests",
-        "tests": "phpunit",
+        "test": "phpunit",
         "test-coverage": "phpunit --coverage-html build/coverage",
         "check-cs": "ecs check --ansi",
         "fix-cs": "ecs check --fix --ansi",
