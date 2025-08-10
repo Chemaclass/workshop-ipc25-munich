@@ -1,12 +1,23 @@
 # Hands-On Refactoring Workshop: Modernizing Legacy PHP with Pair Programming
 
-In this hands-on PHP workshop, we’ll start with simple refactoring and progressively explore powerful techniques. Through legacy-style code katas, you’ll learn how to use automated tests (such as golden, characterization, and snapshot tests) to confidently improve code while preserving its behavior. By working in pairs, you’ll experience the benefits of collaboration, test-driven development, and making safe, incremental changes that bring clarity and structure to real-world legacy code.
+In this hands-on workshop, you'll learn how to transform messy legacy PHP code into clean, maintainable software—without breaking existing behavior.
+
+We'll start with simple refactoring exercises and progress to advanced techniques. Using legacy-style code katas, you'll practice applying automated tests—including golden, characterization, and snapshot tests—to build confidence and safety while modernizing code.
+
+By pair programming, you'll experience:
+- Collaborative problem-solving
+- Test-Driven Development (TDD) in action
+- Safe, incremental changes that bring clarity and structure to real-world legacy code
 
 ### Setup
 
-You can either install the dependencies locally or use the provided docker container.
+You can install dependencies locally or use the provided Docker container for a ready-to-go environment.
 
 ## Katas
+
+We'll work through two categories:
+- TDD — Practicing test-first development and clean design.
+- Refactoring — Safely improving existing, often untested, legacy code.
 
 ### TDD
 
@@ -15,46 +26,34 @@ This is a scaffolding kata setup to practice TDD and Refactoring in PHP.
 - Working example in the `tdd/setup/src` and `tdd/setup/tests` folder.
 - PHPUnit installed
 
-```bash
-make build
-make test
-```
-
 #### 1. [Rock paper scissors](https://hackmd.io/@evalverde/ipc-remote-kata-1)
 
-- TDD Cycle
-- Baby steps
-- Triangulation
+- Define rules and logic clearly with tests.
+- Cover all outcomes efficiently using parameterized tests.
+- Keep code clean, readable, and modular.
 
 #### 2. [Guess the random number](https://www.codurance.com/katas/random-number-kata)
 
-- CRC cards
-- Mock it if you own it
-- Collaborators
-- Solitary or Sociable test
-- Triangulation
-- Test desiderata
+- Control randomness with mocks/stubs.
+- Cover edge cases and unusual scenarios.
+- Separate logic from I/O for easier testing.
+
 
 ### Refactoring
 
-Working example in the `refactoring/` folder.
+Working examples in the `refactoring/` folder.
 
-#### 3. [Tennis](https://github.com/emilybache/Tennis-Refactoring-Kata)
+#### 3. [Parrot](https://github.com/emilybache/Parrot-Refactoring-Kata)
 
-- CRC cards
-- Mock it if you own it
-- Collaborators
-- Solitary or Sociable test
-- Triangulation
-- Test desiderata
+- Refactor in small, safe, test-backed steps.
+- Remove code smells and clarify intent.
+- Add tests before modifying risky legacy code.
 
-#### 4. [Gilded Rose](https://www.codurance.com/katas/gilded-rose)
+#### 4. [Tennis](https://github.com/emilybache/Tennis-Refactoring-Kata)
 
-- CRC cards
-- Mock it if you own it
-- Collaborators
-- Triangulation
-- Test desiderata
+- Refactor complex, conditional-heavy logic safely.
+- Improve readability with meaningful names and abstractions.
+- Eliminate duplication and long methods in legacy code.
 
 ---
 
@@ -69,7 +68,7 @@ Working example in the `refactoring/` folder.
 - [Does TDD Really Lead to Good Design?](https://youtu.be/KyFVA4Spcgg)
 - [Introduction to Test Driven Development](https://youtu.be/04FzlrMKPTM)
 
-### Posts
+### Blog Posts
 
 - [The art of testing: where design meets quality](https://chemaclass.com/blog/the-art-of-testing/)
 - [Test-Driven (Development) - What is challenging about it?](https://chemaclass.com/blog/test-driven-development/)
