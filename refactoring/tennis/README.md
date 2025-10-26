@@ -11,14 +11,9 @@ Refactor complex conditional-heavy logic safely. Practice improving readability 
 docker-compose up
 ```
 
-Then in another terminal:
+This will automatically install dependencies and run the test suite. The container will exit after tests complete.
 
-```bash
-# Run tests
-docker-compose exec tennis-refactoring composer test
-```
-
-See [Installation](#installation) section below for more details and other commands.
+See [Installation](#installation) section below for more details on how to run individual commands.
 
 ---
 
@@ -26,24 +21,34 @@ See [Installation](#installation) section below for more details and other comma
 
 ### Option 1: Using Docker (Recommended)
 
-Run the project in a Docker container with zero PHP setup required:
+Run the project in a Docker container with zero PHP setup required.
+
+#### Run Tests Once
+
+To run the complete test suite automatically:
 
 ```bash
 docker-compose up
 ```
 
-The container will automatically install dependencies and run the tests. It will stay running, allowing you to execute commands inside it.
+This will install dependencies and run all tests. The container exits after completion.
 
-#### Run Commands in Docker
+#### Run Individual Commands
 
-Once `docker-compose up` is running, open another terminal and execute:
+To keep the container running and execute commands repeatedly, use the `-d` flag:
 
 ```bash
+# Start the container in the background
+docker-compose up -d
+
 # Run tests
 docker-compose exec tennis-refactoring composer test
 
 # Or use the container name directly
 docker exec ipc25-tennis composer test
+
+# Stop the container when done
+docker-compose down
 ```
 
 ### Option 2: Local PHP Setup
