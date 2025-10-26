@@ -52,13 +52,13 @@ We'll work through two categories:
 
 ### TDD
 
-#### 1. Rock paper scissors
+#### 1. [Rock paper scissors](tdd/rock-paper-scissors/README.md)
 
 - Define rules and logic clearly with tests.
 - Cover all outcomes efficiently using parameterized tests.
 - Keep code clean, readable, and modular.
 
-#### 2. Guess the random number
+#### 2. [Guess the random number](tdd/guess-random-number/README.md)
 
 - Control randomness with mocks/stubs.
 - Cover edge cases and unusual scenarios.
@@ -67,13 +67,13 @@ We'll work through two categories:
 
 ### Refactoring
 
-#### 3. Parrot
+#### 3. [Parrot](refactoring/parrot/README.md)
 
 - Refactor in small, safe, test-backed steps.
 - Remove code smells and clarify intent.
 - Add tests before modifying risky legacy code.
 
-#### 4. Tennis
+#### 4. [Tennis](refactoring/tennis/README.md)
 
 - Refactor complex, conditional-heavy logic safely.
 - Improve readability with meaningful names and abstractions.
@@ -95,7 +95,7 @@ We'll work through two categories:
 ### Blog Posts
 
 - [The art of testing: where design meets quality](https://chemaclass.com/blog/the-art-of-testing/)
-- [Test-Driven (Development) - What is challenging about it?](https://chemaclass.com/blog/test-driven-development/)
+- [Test-Driven (Development) – What is challenging about it?](https://chemaclass.com/blog/test-driven-development/)
 - [TDD vs BDD - Design or Workflow?](https://chemaclass.com/blog/tdd-vs-bdd/)
 
 ---
