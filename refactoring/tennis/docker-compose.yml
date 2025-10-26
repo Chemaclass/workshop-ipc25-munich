@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  tennis-refactoring:
+    build: .
+    container_name: ipc25-tennis
+    user: ${UID}:${GID}
+    volumes:
+      - .:/srv/workshop-ipc25-munich/refactoring/tennis:delegated
+    environment:
+      XDEBUG_MODE: debug
+      XDEBUG_SESSION: PHPSTORM
