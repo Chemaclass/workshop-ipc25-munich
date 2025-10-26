@@ -9,17 +9,17 @@ By pair programming, you'll experience:
 - Test-Driven Development (TDD) in action
 - Safe, incremental changes that bring clarity and structure to real-world legacy code
 
-### Setup
+## Setup
 
-#### Option 1: Using Docker (Recommended for this workshop)
+### Option 1: Using Docker
 
-No PHP installation needed! Just have Docker installed and running.
+No PHP installation needed! Have Docker installed and running.
 
 ```bash
 # Navigate to any project directory
-cd refactoring/parrot/
-# or cd tdd/rock-paper-scissors/
+cd tdd/rock-paper-scissors/
 # or cd tdd/guess-random-number/
+# or cd refactoring/parrot/
 # or cd refactoring/tennis/
 
 # Run the project in Docker
@@ -34,7 +34,7 @@ Docker will:
 
 See the individual project READMEs for more Docker commands.
 
-#### Option 2: Local PHP Setup
+### Option 2: Local PHP Setup
 
 You can install dependencies locally and run the projects on your machine.
 
@@ -97,3 +97,13 @@ We'll work through two categories:
 - [The art of testing: where design meets quality](https://chemaclass.com/blog/the-art-of-testing/)
 - [Test-Driven (Development) - What is challenging about it?](https://chemaclass.com/blog/test-driven-development/)
 - [TDD vs BDD - Design or Workflow?](https://chemaclass.com/blog/tdd-vs-bdd/)
+
+---
+
+## Cleanup
+
+To remove all Docker containers from the workshop:
+
+```bash
+docker rm -f ipc25-parrot ipc25-tennis ipc25-rps ipc25-guess-number
+```

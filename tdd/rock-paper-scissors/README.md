@@ -1,6 +1,6 @@
 # Rock Paper Scissors TDD Kata
 
-We are creating a rock-paper-scissors game using Test-Driven Development (TDD).
+Practice Test-Driven Development by building a rock-paper-scissors game. Define rules and logic clearly with tests, covering all outcomes efficiently using parameterized tests.
 
 ## Quick Start
 
@@ -29,7 +29,6 @@ See [Installation](#installation) section below for more details and other comma
 Run the project in a Docker container with zero PHP setup required:
 
 ```bash
-# From the rock-paper-scissors directory
 docker-compose up
 ```
 
@@ -63,104 +62,43 @@ composer test
 
 ---
 
-## Rock Beats Scissors
+## About This Kata
 
-### Business needs / User story
+### Business Rules
 
-```
-As a player
-I want rock to beat scissors
-````
+#### Rock Beats Scissors
 
-#### Solution
+As a player, I want rock to beat scissors.
 
-```
-Given I have chosen rock
-When the opponent chooses scissors
-Then I should win
-```
+**Scenarios:**
+- Given I have chosen rock, when the opponent chooses scissors, then I should win
+- Given I have chosen scissors, when the opponent chooses rock, then the opponent should win
 
-```
-Given I have chosen scissors
-When the opponent chooses rock
-Then the opponent win
-```
+#### Paper Beats Rock
 
-## Paper Beats Rock
+As a player, I want paper to beat rock.
 
-### Business needs / User story
+**Scenarios:**
+- Given I have chosen paper, when the opponent chooses rock, then I should win
+- Given I have chosen rock, when the opponent chooses paper, then the opponent should win
 
-```
-As a player
-I want paper to beat rock
-```
+#### Scissors Beats Paper
 
-#### Solution
+As a player, I want scissors to beat paper.
 
-```
-Given I have chosen paper
-When the opponent chooses rock
-Then I should win
-```
+**Scenarios:**
+- Given I have chosen scissors, when the opponent chooses paper, then I should win
+- Given I have chosen paper, when the opponent chooses scissors, then the opponent should win
 
-```
-Given I have chosen rock
-When the opponent chooses paper
-Then the opponent should win
-```
+#### Same Moves Result in Draw
 
-## Scissors Beats Paper
+As a player, I want the same moves to draw.
 
-### Business needs / User story
-
-```
-As a player
-I want scissors to beat paper
-```
-
-#### Solution
-
-```
-Given I have chosen scissors
-When the opponent chooses paper
-Then I should win
-```
-
-```
-Given I have chosen paper
-When the opponent chooses scissors
-Then the opponent should win
-```
-
-## Same Moves Result in Draw
-
-### Business need / User story
-
-```
-As a player
-I want the same moves to draw
-```
-
-#### Solution
-
-```
-Given I have chosen rock
-When the opponent chooses rock
-Then it should be a draw
-```
-
-```
-Given I have chosen scissors
-When the opponent chooses scissors
-Then it should be a draw
-```
-
-```
-Given I have chosen paper
-When the opponent chooses paper
-Then it should be a draw
-```
+**Scenarios:**
+- Given I have chosen rock, when the opponent chooses rock, then it should be a draw
+- Given I have chosen scissors, when the opponent chooses scissors, then it should be a draw
+- Given I have chosen paper, when the opponent chooses paper, then it should be a draw
 
 ---
 
-Original: https://hackmd.io/@evalverde/ipc-remote-kata-1
+> Original: https://hackmd.io/@evalverde/ipc-remote-kata-1

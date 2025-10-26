@@ -1,7 +1,26 @@
 # Parrot Refactoring Kata
 
-The Kata is fully functional, with a full test suite. The objective of this Kata is to 
-improve the code using Pol(l)ymorphism. The tests do not need to be changed.
+Refactor code using Polymorphism. The kata is fully functional with a complete test suite. Your objective is to improve the code while keeping all tests passing.
+
+## Quick Start
+
+### Using Docker (Recommended)
+
+```bash
+# From the parrot directory
+docker-compose up
+```
+
+Then in another terminal:
+
+```bash
+# Run tests
+docker-compose exec parrot-refactoring composer test
+```
+
+See [Installation](#installation) section below for more details and other commands.
+
+---
 
 ## Installation
 
@@ -10,7 +29,6 @@ improve the code using Pol(l)ymorphism. The tests do not need to be changed.
 Run the project in a Docker container with zero PHP setup required:
 
 ```bash
-# From the parrot directory
 docker-compose up
 ```
 
@@ -47,108 +65,33 @@ docker exec ipc25-parrot composer test
 
 Requires:
 
-- [PHP 8.3+](https://www.php.net/downloads.php)
-- [Composer](https://getcomposer.org)
-- [Git](https://git-scm.com/downloads)
+- PHP 8.3+
+- Composer
 
-Install all the dependencies using composer:
+Install dependencies and run tests:
 
-```sh
+```bash
 composer install
-```
-
-Run all the tests:
-
-```shell script
 composer test
 ```
 
-## Dependencies
+---
 
-The kata uses composer to install:
+## About This Kata
 
-- [PHPUnit](https://phpunit.de/)
-- [PHPStan](https://github.com/phpstan/phpstan)
-- [Easy Coding Standard (ECS)](https://github.com/symplify/easy-coding-standard)
+### Project Structure
 
-## Folders
+- `src/` - Contains the Parrot class and ParrotTypeEnum that need to be refactored
+- `tests/` - Contains the complete test suite (all tests are passing)
 
-- `src` - contains the Parrot class which need to be refactored and a ParrotTypeEnum.
-- `tests` - contains the corresponding tests. All the tests are passing, and shouldn't need to be changed.
+### Dependencies
 
-## Testing
+The kata uses:
 
-PHPUnit is pre-configured to run tests. PHPUnit can be run using a composer script. To run the unit tests, from the root
-of the PHP kata run:
+- [PHPUnit](https://phpunit.de/) - Testing framework
+- [PHPStan](https://github.com/phpstan/phpstan) - Static analysis
+- [Easy Coding Standard (ECS)](https://github.com/symplify/easy-coding-standard) - Code standards (PSR-12)
 
-```shell script
-composer tests
-```
+---
 
-On Windows a batch file has been created, similar to an alias on Linux/Mac (e.g. `alias pu="composer test"`), the same
-PHPUnit `composer test` can be run:
-
-```shell script
-pu.bat
-```
-
-### Tests with Coverage Report
-
-To run all test and generate a html coverage report run:
-
-```shell script
-composer test-coverage
-```
-
-The test-coverage report will be created in /builds, it is best viewed by opening /builds/**index.html** in your browser.
-
-## Code Standard
-
-Easy Coding Standard (ECS) is used to check for style and code standards, **PSR-12** is used.
-
-### Check Code
-
-To check code, but not fix errors:
-
-```shell script
-composer check-cs
-``` 
-
-On Windows a batch file has been created, similar to an alias on Linux/Mac (e.g. `alias cc="composer check-cs"`), the
-same `composer check-cs` can be run:
-
-```shell script
-cc.bat
-```
-
-### Fix Code
-
-There are many code fixes automatically provided by ECS, if advised to run --fix, the following script can be run:
-
-```shell script
-composer fix-cs
-```
-
-On Windows a batch file has been created, similar to an alias on Linux/Mac (e.g. `alias fc="composer fix-cs"`), the same 
-`composer fix-cs` can be run:
-
-```shell script
-fc.bat
-```
-
-## Static Analysis
-
-PHPStan is used to run static analysis checks:
-
-```shell script
-composer phpstan
-```
-
-On Windows a batch file has been created, similar to an alias on Linux/Mac (e.g. `alias ps="composer phpstan"`), the 
-same `composer phpstan` can be run:
-
-```shell script
-ps.bat
-```
-
-**Happy coding**!
+> Original: https://github.com/emilybache/Parrot-Refactoring-Kata
