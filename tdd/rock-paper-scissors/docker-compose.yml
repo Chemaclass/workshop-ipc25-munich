@@ -1,8 +1,7 @@
 services:
-  workshop_ipc25_munich:
+  rock-paper-scissors-tdd:
     build: .
-    container_name: workshop_ipc25_munich
-    hostname: php
+    container_name: ipc25-rps
     user: ${UID}:${GID}
     volumes:
       - .:/srv/workshop-ipc25-munich:delegated
