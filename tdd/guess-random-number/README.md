@@ -44,9 +44,6 @@ docker-compose up -d
 # Run tests
 docker-compose exec guess-number-tdd composer test
 
-# Or use the container name directly
-docker exec ipc25-guess-number composer test
-
 # Stop the container when done
 docker-compose down
 ```

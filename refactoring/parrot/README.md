@@ -44,18 +44,6 @@ docker-compose up -d
 # Run tests
 docker-compose exec parrot-refactoring composer test
 
-# Run tests with coverage report
-docker-compose exec parrot-refactoring composer test-coverage
-
-# Check code standards
-docker-compose exec parrot-refactoring composer check-cs
-
-# Fix code standards
-docker-compose exec parrot-refactoring composer fix-cs
-
-# Run static analysis
-docker-compose exec parrot-refactoring composer phpstan
-
 # Stop the container when done
 docker-compose down
 ```

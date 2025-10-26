@@ -2,7 +2,7 @@ services:
   parrot-refactoring:
     build: .
     container_name: ipc25-parrot
-    user: ${UID}:${GID}
+    command: sh -c "composer install --no-interaction && tail -f /dev/null"
     volumes:
       - .:/srv/workshop-ipc25-munich/refactoring/parrot:delegated
     environment:

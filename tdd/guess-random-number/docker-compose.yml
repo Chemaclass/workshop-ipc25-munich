@@ -2,9 +2,10 @@ services:
   guess-number-tdd:
     build: .
     container_name: ipc25-guess-number
-    user: ${UID}:${GID}
+    command: sh -c "composer install --no-interaction && tail -f /dev/null"
+    working_dir: /srv/workshop-ipc25-munich/tdd/grn
     volumes:
-      - .:/srv/workshop-ipc25-munich:delegated
+      - .:/srv/workshop-ipc25-munich/tdd/grn:delegated
     environment:
       XDEBUG_MODE: debug
       XDEBUG_SESSION: PHPSTORM
