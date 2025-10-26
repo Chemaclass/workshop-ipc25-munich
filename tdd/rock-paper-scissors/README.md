@@ -4,21 +4,6 @@ Practice Test-Driven Development by building a rock-paper-scissors game. Define 
 
 ## Quick Start
 
-### Using Docker (Recommended)
-
-```bash
-# From the rock-paper-scissors directory
-docker-compose up
-```
-
-This will automatically install dependencies and run the test suite. The container will exit after tests complete.
-
-See [Installation](#installation) section below for more details on how to run individual commands.
-
----
-
-## Installation
-
 ### Option 1: Using Docker (Recommended)
 
 Run the project in a Docker container with zero PHP setup required.
