@@ -11,7 +11,38 @@ By pair programming, you'll experience:
 
 ### Setup
 
-You can install dependencies locally or use the provided Docker container for a ready-to-go environment.
+#### Option 1: Using Docker (Recommended for this workshop)
+
+No PHP installation needed! Just have Docker installed and running.
+
+```bash
+# Navigate to any project directory
+cd refactoring/parrot/
+# or cd tdd/rock-paper-scissors/
+# or cd tdd/guess-random-number/
+# or cd refactoring/tennis/
+
+# Run the project in Docker
+docker-compose up
+```
+
+Docker will:
+- Build a PHP 8.3 environment
+- Install dependencies automatically
+- Run the tests
+- Keep running so you can execute commands in the container
+
+See the individual project READMEs for more Docker commands.
+
+#### Option 2: Local PHP Setup
+
+You can install dependencies locally and run the projects on your machine.
+
+Requires:
+- PHP 8.3+
+- Composer
+
+See each project's README for local setup instructions.
 
 ## Katas
 

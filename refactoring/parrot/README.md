@@ -5,33 +5,62 @@ improve the code using Pol(l)ymorphism. The tests do not need to be changed.
 
 ## Installation
 
-The kata uses:
+### Option 1: Using Docker (Recommended)
 
-- [PHP 8.0+](https://www.php.net/downloads.php)
-- [Composer](https://getcomposer.org)
+Run the project in a Docker container with zero PHP setup required:
 
-Recommended:
-
-- [Git](https://git-scm.com/downloads)
-
-See [GitHub cloning a repository](https://help.github.com/en/articles/cloning-a-repository) for details on how to
-create a local copy of this project on your computer.
-
-```sh
-git clone https://github.com/emilybache/Parrot-Refactoring-Kata.git
+```bash
+# From the parrot directory
+docker-compose up
 ```
 
-Install all the dependencies using composer
+The container will automatically install dependencies and run the tests. It will stay running, allowing you to execute commands inside it.
+
+#### Run Commands in Docker
+
+Once `docker-compose up` is running, open another terminal and execute:
+
+```bash
+# Run tests
+docker-compose exec parrot-refactoring composer test
+
+# Run tests with coverage report
+docker-compose exec parrot-refactoring composer test-coverage
+
+# Check code standards
+docker-compose exec parrot-refactoring composer check-cs
+
+# Fix code standards
+docker-compose exec parrot-refactoring composer fix-cs
+
+# Run static analysis
+docker-compose exec parrot-refactoring composer phpstan
+```
+
+Or use the container name directly:
+
+```bash
+docker exec ipc25-parrot composer test
+```
+
+### Option 2: Local PHP Setup
+
+Requires:
+
+- [PHP 8.3+](https://www.php.net/downloads.php)
+- [Composer](https://getcomposer.org)
+- [Git](https://git-scm.com/downloads)
+
+Install all the dependencies using composer:
 
 ```sh
-cd Parrot-Refactoring-Kata/PHP
 composer install
 ```
 
-Run all the tests
+Run all the tests:
 
 ```shell script
-composer tests
+composer test
 ```
 
 ## Dependencies

@@ -1,6 +1,67 @@
-# Guess Random Number
+# Guess Random Number TDD Kata
 
 > Inspired by [Codurance: Guess the Random Number](https://www.codurance.com/publications/guess-the-random-number)
+
+## Quick Start
+
+### Using Docker (Recommended)
+
+```bash
+# From the guess-random-number directory
+docker-compose up
+```
+
+Then in another terminal:
+
+```bash
+# Run tests
+docker-compose exec guess-number-tdd composer test
+```
+
+See [Installation](#installation) section below for more details and other commands.
+
+---
+
+## Installation
+
+### Option 1: Using Docker (Recommended)
+
+Run the project in a Docker container with zero PHP setup required:
+
+```bash
+# From the guess-random-number directory
+docker-compose up
+```
+
+The container will automatically install dependencies and run the tests. It will stay running, allowing you to execute commands inside it.
+
+#### Run Commands in Docker
+
+Once `docker-compose up` is running, open another terminal and execute:
+
+```bash
+# Run tests
+docker-compose exec guess-number-tdd composer test
+
+# Or use the container name directly
+docker exec ipc25-guess-number composer test
+```
+
+### Option 2: Local PHP Setup
+
+Requires:
+
+- PHP 8.3+
+- Composer
+
+Install dependencies and run tests:
+
+```bash
+composer install
+composer test
+```
+
+---
 
 ## 🧠 Problem Statement
 
