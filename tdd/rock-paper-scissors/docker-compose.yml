@@ -1,0 +1,11 @@
+services:
+  workshop_ipc25_munich:
+    build: .
+    container_name: workshop_ipc25_munich
+    hostname: php
+    user: ${UID}:${GID}
+    volumes:
+      - .:/srv/workshop-ipc25-munich:delegated
+    environment:
+      XDEBUG_MODE: debug
+      XDEBUG_SESSION: PHPSTORM

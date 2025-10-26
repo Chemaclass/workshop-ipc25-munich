@@ -21,18 +21,13 @@ We'll work through two categories:
 
 ### TDD
 
-This is a scaffolding kata setup to practice TDD and Refactoring in PHP.
-
-- Working example in the `tdd/setup/src` and `tdd/setup/tests` folder.
-- PHPUnit installed
-
-#### 1. [Rock paper scissors](https://hackmd.io/@evalverde/ipc-remote-kata-1)
+#### 1. Rock paper scissors
 
 - Define rules and logic clearly with tests.
 - Cover all outcomes efficiently using parameterized tests.
 - Keep code clean, readable, and modular.
 
-#### 2. [Guess the random number](https://www.codurance.com/katas/random-number-kata)
+#### 2. Guess the random number
 
 - Control randomness with mocks/stubs.
 - Cover edge cases and unusual scenarios.
@@ -41,15 +36,13 @@ This is a scaffolding kata setup to practice TDD and Refactoring in PHP.
 
 ### Refactoring
 
-Working examples in the `refactoring/` folder.
-
-#### 3. [Parrot](https://github.com/emilybache/Parrot-Refactoring-Kata)
+#### 3. Parrot
 
 - Refactor in small, safe, test-backed steps.
 - Remove code smells and clarify intent.
 - Add tests before modifying risky legacy code.
 
-#### 4. [Tennis](https://github.com/emilybache/Tennis-Refactoring-Kata)
+#### 4. Tennis
 
 - Refactor complex, conditional-heavy logic safely.
 - Improve readability with meaningful names and abstractions.
