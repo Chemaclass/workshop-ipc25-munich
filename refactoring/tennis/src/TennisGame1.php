@@ -29,9 +29,12 @@ class TennisGame1 implements TennisGame
     {
         if($this->isTie()) {
             return $this->getStandingNameSamePoint();
-        } elseif($this->isAdvantage()) {
+        }
+
+        if($this->isAdvantage()) {
             return $this->getStandingNameAdvantage();
         }
+
         return $this->getStandingNameRegular();
     }
 
@@ -51,15 +54,20 @@ class TennisGame1 implements TennisGame
     private function getStandingNameAdvantage(): string
     {
         $minusResult = $this->scorePlayer1 - $this->scorePlayer2;
+
         if($minusResult === 1) {
             return $this->getAdvantageName($this->player1Name);
-        } elseif($minusResult === -1) {
-            return $this->getAdvantageName($this->player2Name);
-        } elseif($minusResult >= 2) {
-            return $this->getWinName($this->player1Name);
-        } else {
-            return $this->getWinName($this->player2Name);
         }
+
+        if($minusResult === -1) {
+            return $this->getAdvantageName($this->player2Name);
+        }
+
+        if($minusResult >= 2) {
+            return $this->getWinName($this->player1Name);
+        }
+
+        return $this->getWinName($this->player2Name);
     }
 
     private function getAdvantageName(string $playerName): string
