@@ -5,29 +5,11 @@ declare(strict_types=1);
 namespace KataTests;
 
 use Kata\GuessTheNumberGame;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class GuessTheNumberGameTest extends TestCase
 {
-
-    public function testWinOnFirstGuess(): void
-    {
-        $guessTheNumberGame = new GuessTheNumberGame(5);
-        self::assertEquals("You win!", $guessTheNumberGame->guess(5));
-    }
-
-    public function testGuessLower(): void
-    {
-        $guessTheNumberGame = new GuessTheNumberGame(5);
-        self::assertEquals("lower", $guessTheNumberGame->guess(8));
-    }
-
-    public function testGuessHigher(): void
-    {
-        $guessTheNumberGame = new GuessTheNumberGame(5);
-        self::assertEquals("higher", $guessTheNumberGame->guess(3));
-    }
-
     public function testMultipleGuessLose(): void
     {
         $guessTheNumberGame = new GuessTheNumberGame(5);
@@ -53,13 +35,17 @@ final class GuessTheNumberGameTest extends TestCase
         self::assertEquals("You win!", $guessTheNumberGame->guess($randomNumber));
     }
 
-    #DataProvider tries()
+    #[DataProvider('tries')]
+    public function testTries(string $result, $guess, $rightNumber): void
+    {
+        $guessTheNumberGame = new GuessTheNumberGame($rightNumber);
+        self::assertEquals($result, $guessTheNumberGame->guess($guess));
 
-    public static function tries():iterable{
-        yield ['lower', 4];
-        yield ['higher', 6];
-        yield ['You win!', 5];
     }
 
-//    public function
+    public static function tries():iterable{
+        yield ['higher', 4, 5];
+        yield ['lower', 6, 5];
+        yield ['You win!', 5, 5];
+    }
 }
