@@ -56,15 +56,20 @@ class TennisGame1 implements TennisGame
         } elseif($minusResult === -1) {
             return $this->getAdvantageName($this->player2Name);
         } elseif($minusResult >= 2) {
-            return 'Win for player1';
+            return $this->getWinName($this->player1Name);
         } else {
-            return 'Win for player2';
+            return $this->getWinName($this->player2Name);
         }
     }
 
     private function getAdvantageName(string $playerName): string
     {
         return "Advantage " . $playerName;
+    }
+
+    private function getWinName(string $playerName): string
+    {
+        return "Win for " . $playerName;
     }
 
     /**
