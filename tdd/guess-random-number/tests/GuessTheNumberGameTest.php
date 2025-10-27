@@ -28,11 +28,19 @@ final class GuessTheNumberGameTest extends TestCase
         self::assertEquals("higher", $guessTheNumberGame->guess(3));
     }
 
-    public function testMultipleGuess(): void
+    public function testMultipleGuessLose(): void
     {
         $guessTheNumberGame = new GuessTheNumberGame(5);
         self::assertEquals("lower", $guessTheNumberGame->guess(8));
         self::assertEquals("higher", $guessTheNumberGame->guess(3));
         self::assertEquals("You lose!", $guessTheNumberGame->guess(4));
+    }
+
+    public function testMultipleGuessWin(): void
+    {
+        $guessTheNumberGame = new GuessTheNumberGame(5);
+        self::assertEquals("lower", $guessTheNumberGame->guess(8));
+        self::assertEquals("higher", $guessTheNumberGame->guess(3));
+        self::assertEquals("You win!", $guessTheNumberGame->guess(5));
     }
 }
