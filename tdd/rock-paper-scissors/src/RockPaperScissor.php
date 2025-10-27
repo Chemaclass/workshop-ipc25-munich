@@ -19,6 +19,10 @@ final class RockPaperScissor
         if ($playerHand === self::ROCK && $opponentHand === self::SCISSORS) {
             return self::PLAYER_WINS;
         }
+        if ($playerHand === self::SCISSORS && $opponentHand === self::PAPER) {
+            return self::PLAYER_WINS;
+        }
+
         return self::OPPONENT_WINS;
     }
 }
