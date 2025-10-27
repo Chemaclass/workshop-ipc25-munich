@@ -6,17 +6,15 @@ namespace Kata;
 
 final class ChangeMe
 {
-    public function changeMe(): bool
-    {
-        return true;
-    }
-
     public function game(int $number): bool
     {
         if($number === 5)
         {
             return true;
         }
+        
         return false;
     }
+
+
 }

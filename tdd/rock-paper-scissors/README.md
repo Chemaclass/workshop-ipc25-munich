@@ -59,7 +59,6 @@ As a player, I want rock to beat scissors.
 
 **Scenarios:**
 - Given I have chosen rock, when the opponent chooses scissors, then I should win
-- Given I have chosen scissors, when the opponent chooses rock, then the opponent should win
 
 #### Paper Beats Rock
 
