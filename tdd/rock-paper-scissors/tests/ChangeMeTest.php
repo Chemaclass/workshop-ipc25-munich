@@ -59,5 +59,17 @@ final class ChangeMeTest extends TestCase
         self::assertTrue($kata->playerWins('paper', 'paper') === Kata::DRAW);
     }
 
+    public function test_rock_vs_rock(): void
+    {
+        $kata = new Kata();
 
+        self::assertTrue($kata->playerWins('rock', 'rock') === Kata::DRAW);
+    }
+
+    public function test_scissors_vs_scissors(): void
+    {
+        $kata = new Kata();
+
+        self::assertTrue($kata->playerWins('scissors', 'scissors') === Kata::DRAW);
+    }
 }
