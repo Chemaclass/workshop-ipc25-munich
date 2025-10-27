@@ -13,7 +13,11 @@ final class AfricanParrot extends Parrot
     )
     {
         
-        perant::__construct();
+        parent::__construct(ParrotTypeEnum::AFRICAN,
+          $numberOfCoconuts,
+          $voltage,
+          $isNailed
+        );
 
     }
 
