@@ -10,6 +10,8 @@ class Parrot
 {
   private const float BASE_SPEED = 12.0;
   private const float LOAD_FACTOR = 9.0;
+  private const float MINIMUM_VOLTAGE = 24.0;
+
     public function __construct(
         /**
          * @var int ParrotTypeEnum
@@ -49,6 +51,6 @@ class Parrot
 
     private function getBaseSpeedWith(float $voltage): float
     {
-        return min(24.0, $voltage * self::BASE_SPEED);
+        return min(self::MINIMUM_VOLTAGE, $voltage * self::BASE_SPEED);
     }
 }
