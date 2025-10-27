@@ -6,11 +6,13 @@ namespace Kata;
 
 final class RockPaperScissor
 {
-    public function playHands(string $playerHand, string $opponentHand): bool
+    public const string PLAYER_WINS = 'player wins';
+    public const string OPPONENT_WINS = 'opponent wins';
+    public function playHands(string $playerHand, string $opponentHand): string
     {
         if ($playerHand === 'rock' && $opponentHand === 'scissors') {
-            return true;
+            return self::PLAYER_WINS;
         }
-        return false;
+        return self::OPPONENT_WINS;
     }
 }
