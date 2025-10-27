@@ -21,4 +21,10 @@ final class RockPaperScissorsTest extends TestCase
         $rockPaperScissor = new RockPaperScissor();
         $this->assertEquals(RockPaperScissor::OPPONENT_WINS, $rockPaperScissor->playHands('scissors', 'rock'));
     }
+
+    public function testPaperBeatsRock(): void
+    {
+        $rockPaperScissor = new RockPaperScissor();
+        $this->assertEquals(RockPaperScissor::PLAYER_WINS, $rockPaperScissor->playHands('paper', 'rock'));
+    }
 }
