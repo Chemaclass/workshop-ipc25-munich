@@ -6,10 +6,6 @@ namespace Kata;
 
 final class RPSGame
 {
-    public function changeMe(): bool
-    {
-        return true;
-    }
 
     public function getItems(): array
     {

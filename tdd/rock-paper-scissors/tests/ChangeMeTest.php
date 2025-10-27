@@ -10,13 +10,6 @@ use PHPUnit\Framework\TestCase;
 
 final class ChangeMeTest extends TestCase
 {
-    public function test_change_me(): void
-    {
-        $changeMe = new RPSGame();
-
-        self::assertTrue($changeMe->changeMe());
-    }
-
     public function test_items(): void
     {
         $changeMe = new RPSGame();
