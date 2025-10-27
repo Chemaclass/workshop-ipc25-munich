@@ -17,10 +17,13 @@ final class GuessRandomNumberGame
         {
             return 'higher';
         }
+
         if($number === 5)
         {
             return 'even';
         }
+
+        return '';
     }
 
 

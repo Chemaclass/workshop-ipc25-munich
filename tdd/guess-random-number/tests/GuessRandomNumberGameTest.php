@@ -9,24 +9,17 @@ use PHPUnit\Framework\TestCase;
 
 final class GuessRandomNumberGameTest extends TestCase
 {
-    public function test_number_five()
+    public function test_number_even()
     {
         $changeMe = new GuessRandomNumberGame();
 
-        self::assertTrue($changeMe->game(5));
+        self::assertEquals('even', $changeMe->game(5));
     }
 
-    public function test_number_one()
+    public function test_number_is_higher()
     {
         $changeMe = new GuessRandomNumberGame();
-
-        self::assertFalse($changeMe->game(1));
-    }
-
-    public function test_number_ten()
-    {
-        $changeMe = new GuessRandomNumberGame();
-        self::assertFalse($changeMe->game(10));
+        self::assertEquals('higher', $changeMe->game(10));
     }
 
     public function test_number_is_lower()
