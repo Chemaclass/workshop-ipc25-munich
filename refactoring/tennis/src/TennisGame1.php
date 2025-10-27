@@ -32,7 +32,7 @@ class TennisGame1 implements TennisGame
         } elseif($this->isAdvantage()) {
             return $this->getStandingNameAdvantage();
         }
-        return $this->getStandingNameRegular('');
+        return $this->getStandingNameRegular();
     }
 
     public function getStandingNameSamePoint(): string
@@ -73,34 +73,11 @@ class TennisGame1 implements TennisGame
     }
 
     /**
-     * @param string $score
      * @return string
      */
-    private function getStandingNameRegular(string $score): string
+    private function getStandingNameRegular(): string
     {
-        for($i = 1; $i < 3; $i++) {
-            if($i === 1) {
-                $tempScore = $this->scorePlayer1;
-            } else {
-                $score .= '-';
-                $tempScore = $this->scorePlayer2;
-            }
-            switch($tempScore) {
-                case 0:
-                    $score .= 'Love';
-                    break;
-                case 1:
-                    $score .= 'Fifteen';
-                    break;
-                case 2:
-                    $score .= 'Thirty';
-                    break;
-                case 3:
-                    $score .= 'Forty';
-                    break;
-            }
-        }
-        return $score;
+        return $this->getScoreText($this->scorePlayer1) . "-" .$this->getScoreText($this->scorePlayer2);
     }
 
     /**
@@ -117,5 +94,24 @@ class TennisGame1 implements TennisGame
     private function isAdvantage(): bool
     {
         return $this->scorePlayer1 >= 4 || $this->scorePlayer2 >= 4;
+    }
+
+    /**
+     * @param int $tempScore
+     * @param string $score
+     * @return string
+     */
+    private function getScoreText(int $tempScore): string
+    {
+        switch($tempScore) {
+            case 0:
+                return 'Love';
+            case 1:
+                return 'Fifteen';
+            case 2:
+                return 'Thirty';
+            case 3:
+                return 'Forty';
+        }
     }
 }
