@@ -30,23 +30,40 @@ class TennisGame1 implements TennisGame
 
     public function getScore(): string
     {
-        $score = '';
+  
         if ($this->playerOneScore === $this->playerTwoScore) {
-            return match ($this->playerOneScore) {
+            return $this->tie($this->playerOneScore);
+        } 
+        if ($this->playerOneScore >= 4 || $this->playerTwoScore >= 4) {
+            return $this->advantageOrWin();
+        } 
+        return $this->getScoreName();
+        
+
+    }
+
+    private function tie($score): string {
+        return match ($score) {
                 0 => 'Love-All',
                 1 => 'Fifteen-All',
                 2 => 'Thirty-All',
                 default => 'Deuce',
-            };
-        } elseif ($this->playerOneScore >= 4 || $this->playerTwoScore >= 4) {
-            $minusResult = $this->playerOneScore - $this->playerTwoScore;
+        };
+    }
+
+    private function advantageOrWin(): string {
+        $minusResult = $this->playerOneScore - $this->playerTwoScore;
             if ($minusResult >= 1) {
                 $score = sprintf($minusResult === 1 ? 'Advantage %s' : 'Win for %s', $this->player1Name);
             } else {
                 $score = sprintf($minusResult === -1 ? 'Advantage %s' : 'Win for %s', $this->player2Name);
             }
-        } else {
-            for ($i = 1; $i < 3; $i++) {
+            return $score;
+    }
+
+    private function getScoreName (): string {
+        $score = "";
+        for ($i = 1; $i < 3; $i++) {
                 if ($i === 1) {
                     $tempScore = $this->playerOneScore;
                 } else {
@@ -70,7 +87,7 @@ class TennisGame1 implements TennisGame
                         break;
                 }
             }
-        }
         return $score;
     }
+
 }
