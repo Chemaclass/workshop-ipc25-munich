@@ -26,6 +26,8 @@ final class RockPaperScissorsTest extends TestCase
             [RockPaperScissor::SCISSORS, RockPaperScissor::PAPER, RockPaperScissor::PLAYER_WINS],
             [RockPaperScissor::PAPER, RockPaperScissor::SCISSORS, RockPaperScissor::OPPONENT_WINS],
             [RockPaperScissor::PAPER, RockPaperScissor::PAPER, RockPaperScissor::DRAW],
+            [RockPaperScissor::SCISSORS, RockPaperScissor::SCISSORS, RockPaperScissor::DRAW],
+            [RockPaperScissor::ROCK, RockPaperScissor::ROCK, RockPaperScissor::DRAW],
         ];
     }
 }
