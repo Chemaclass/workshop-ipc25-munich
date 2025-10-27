@@ -15,4 +15,16 @@ final class ChangeMeTest extends TestCase
 
         self::assertTrue($changeMe->changeMe());
     }
+
+    public function test_items(): void
+    {
+        $changeMe = new ChangeMe();
+        self::assertIsArray($changeMe->getItems());
+    }
+
+    public function test_items_scissors(): void
+    {
+        $changeMe = new ChangeMe();
+        self::assertTrue(in_array('scissors', $changeMe->getItems()));
+    }
 }
