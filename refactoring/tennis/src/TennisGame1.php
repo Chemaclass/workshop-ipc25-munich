@@ -34,13 +34,7 @@ class TennisGame1 implements TennisGame
             $score = $this->getMinusResult();
         } else {
             for ($i = 1; $i < 3; $i++) {
-                if ($i === 1) {
-                    $tempScore = $this->m_score1;
-                } else {
-                    $score     .= '-';
-                    $tempScore = $this->m_score2;
-                }
-                $score .= $this->getScoreWord($tempScore);
+                $score = $this->getScoreWord($i, $score);
             }
         }
         return $score;
@@ -75,14 +69,23 @@ class TennisGame1 implements TennisGame
         return 'Win for player2';
     }
 
-    private function getScoreWord(int $tempScore): string
+    private function getScoreWord(int $i, string $score): string
     {
-        return match ($tempScore) {
+        if ($i === 1) {
+            $tempScore = $this->m_score1;
+        } else {
+            $score     .= '-';
+            $tempScore = $this->m_score2;
+        }
+
+        $tempScoreWord = match ($tempScore) {
             0 => 'Love',
             1 => 'Fifteen',
             2 => 'Thirty',
             3 => 'Forty',
         };
+
+        return $score . $tempScoreWord;
     }
 
 }
