@@ -10,6 +10,13 @@ class TennisGame1 implements TennisGame
 
     private int $player2Score = 0;
 
+    const array SCORE_NAME = [
+      'Love',
+      'Fifteen',
+      'Thirty',
+      'Forty',
+    ];
+
     public function __construct(
         private string $player1Name,
         private string $player2Name
@@ -50,17 +57,9 @@ class TennisGame1 implements TennisGame
 
     public function getScoreByName(int $score): string
     {
-        switch ($score) {
-            case 0:
-                return 'Love';
-            case 1:
-                return 'Fifteen';
-            case 2:
-                return 'Thirty';
-            case 3:
-                return 'Forty';
-            default:
-                return '';
+        if (!array_key_exists($score, self::SCORE_NAME)) {
+          return '';
         }
+        return self::SCORE_NAME[$score];
     }
 }
