@@ -9,6 +9,11 @@ use Exception;
 class EuropeanParrot extends Parrot
 {
 
+    public function __construct()
+    {
+        
+    }
+
     /**
      * @throws Exception
      */
