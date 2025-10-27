@@ -8,9 +8,9 @@ use Exception;
 
 class Parrot
 {
-  private const float BASE_SPEED = 12.0;
-  private const float LOAD_FACTOR = 9.0;
-  private const float MINIMUM_VOLTAGE = 24.0;
+    private const float BASE_SPEED = 12.0;
+    private const float LOAD_FACTOR = 9.0;
+    private const float MINIMUM_VOLTAGE = 24.0;
 
     public function __construct(
         /**
@@ -42,8 +42,8 @@ class Parrot
     public function getCry(): string
     {
         return match ($this->type) {
-            ParrotTypeEnum::EUROPEAN => 'Sqoork!',
-            ParrotTypeEnum::AFRICAN => 'Sqaark!',
+            ParrotTypeEnum::EUROPEAN => ParrotCryEnum::EUROPEAN,
+            ParrotTypeEnum::AFRICAN => ParrotCryEnum::AFRICAN,
             ParrotTypeEnum::NORWEGIAN_BLUE => $this->getCryNorwegianBlue(),
             default => throw new Exception('Should be unreachable'),
         };
@@ -59,11 +59,13 @@ class Parrot
         return max(0, self::BASE_SPEED - self::LOAD_FACTOR * $this->numberOfCoconuts);
     }
 
-    private function getSpeedNorwegianBlue(): float {
+    private function getSpeedNorwegianBlue(): float
+    {
         return $this->isNailed ? 0 : $this->getBaseSpeedWith($this->voltage);
     }
 
-    private function getCryNorwegianBlue(): string {
-      return $this->voltage > 0 ? 'Bzzzzzz' : '...';
+    private function getCryNorwegianBlue(): string
+    {
+        return $this->voltage > 0 ? ParrotCryEnum::NORWEGIAN_BLUE_VOLT_0 : ParrotCryEnum::NORWEGIAN_BLUE_VOLT_N;
     }
 }
