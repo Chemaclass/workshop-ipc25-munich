@@ -11,20 +11,18 @@ class TennisGame1 implements TennisGame
     private int $player2Score = 0;
 
     public function __construct(
-        private string $player1Name,
-        private string $player2Name
+        private readonly string $player1Name,
+        private readonly string $player2Name
     ) {
     }
 
     public function wonPoint(string $playerName): void
     {
-        if ($playerName === $this->player1Name) {
-            $this->player1Score++;
-        } else if ($playerName === $this->player2Name) {
-            $this->player2Score++;
-        } else {
-            throw new \InvalidArgumentException('Invalid player name');
-        }
+        match ($playerName) {
+            $this->player1Name => $this->player1Score++,
+            $this->player2Name => $this->player2Score++,
+            default => throw new \InvalidArgumentException('Invalid player name'),
+        };
     }
 
     public function getScore(): string
@@ -53,18 +51,18 @@ class TennisGame1 implements TennisGame
         $minusResult = $this->player1Score - $this->player2Score;
 
         if ($minusResult === 1) {
-            return 'Advantage player1';
+            return 'Advantage ' . $this->player1Name;
         }
 
         if ($minusResult === -1) {
-            return 'Advantage player2';
+            return 'Advantage ' . $this->player2Name;
         }
 
         if ($minusResult >= 2) {
-            return 'Win for player1';
+            return 'Win for ' . $this->player1Name;
         }
 
-        return 'Win for player2';
+        return 'Win for ' . $this->player2Name;
     }
 
     private function getScoreWord(): string
@@ -72,8 +70,8 @@ class TennisGame1 implements TennisGame
         return $this->getTempScoreWord($this->player1Score) . "-" . $this->getTempScoreWord($this->player2Score);
     }
 
-    private function getTempScoreWord($tempScore) {
-        return match ($tempScore) {
+    private function getTempScoreWord(int $playerScore): string {
+        return match ($playerScore) {
             0 => 'Love',
             1 => 'Fifteen',
             2 => 'Thirty',
