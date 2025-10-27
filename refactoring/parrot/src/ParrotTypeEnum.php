@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Parrot;
 
+use ECSPrefix202306\Doctrine\Common\Annotations\Annotation\Enum;
+
 /**
  * Class ParrotTypeEnum
  *
  * @package Parrot
  */
-abstract class ParrotTypeEnum
+Enum ParrotTypeEnum:int
 {
-    public const EUROPEAN = 0;
-
-    public const AFRICAN = 1;
-
-    public const NORWEGIAN_BLUE = 2;
+    case EUROPEAN = 0;
+    case AFRICAN = 1;
+    case NORWEGIAN_BLUE = 2;
 }

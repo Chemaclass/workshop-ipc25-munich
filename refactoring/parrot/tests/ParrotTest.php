@@ -62,19 +62,19 @@ class ParrotTest extends TestCase
     public function testGetCryOfEuropeanParrot(): void
     {
         $parrot = new Parrot(ParrotTypeEnum::EUROPEAN, 0, 0, false);
-        self::assertSame('Sqoork!', $parrot->getCry());
+        self::assertSame(Parrot::CRY_EUROPEAN, $parrot->getCry());
     }
 
     public function testGetCryOfAfricanParrot(): void
     {
         $parrot = new Parrot(ParrotTypeEnum::AFRICAN, 1, 0, false);
-        self::assertSame('Sqaark!', $parrot->getCry());
+        self::assertSame(Parrot::CRY_AFRICAN, $parrot->getCry());
     }
 
     public function testGetCryOfNorwegianBlueHighVoltage(): void
     {
         $parrot = new Parrot(ParrotTypeEnum::NORWEGIAN_BLUE, 0, 4, false);
-        self::assertSame('Bzzzzzz', $parrot->getCry());
+        self::assertSame(Parrot::CRY_NORWEGIAN_BLUE, $parrot->getCry());
     }
 
     public function testGetCryOfNorwegianBlueNoVoltage(): void
