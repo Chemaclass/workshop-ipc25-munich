@@ -6,9 +6,9 @@ namespace Parrot;
 
 use Exception;
 
-class Parrot
+abstract class Parrot
 {
-    private ParrotDTO $dto;
+    protected ParrotDTO $dto;
 
     public function __construct(ParrotDTO $dto) {
         $this->dto = $dto;
@@ -17,40 +17,28 @@ class Parrot
     /**
      * @throws Exception
      */
-    public function getSpeed(): float
-    {
-        return match ($this->dto->type) {
-            ParrotTypeEnum::EUROPEAN => $this->getBaseSpeed(),
-            ParrotTypeEnum::AFRICAN => max(0, $this->getBaseSpeed() - $this->getLoadFactor() * $this->dto->numberOfCoconuts),
-            ParrotTypeEnum::NORWEGIAN_BLUE => $this->dto->isNailed ? 0 : $this->getBaseSpeedWith($this->dto->voltage),
-            default => throw new Exception('Should be unreachable'),
-        };
-    }
-
+//    public abstract function _getSpeed(): float
+//    {
+//        return match ($this->dto->type) {
+//            ParrotTypeEnum::NORWEGIAN_BLUE => $this->dto->isNailed ? 0 : $this->getBaseSpeedWith($this->dto->voltage),
+//            default => throw new Exception('Should be unreachable'),
+//        };
+//    }
+    public abstract function getSpeed(): float;
+    public abstract function getCry(): float;
     /**
      * @throws Exception
      */
-    public function getCry(): string
-    {
-        return match ($this->dto->type) {
-            ParrotTypeEnum::EUROPEAN => 'Sqoork!',
-            ParrotTypeEnum::AFRICAN => 'Sqaark!',
-            ParrotTypeEnum::NORWEGIAN_BLUE => $this->dto->voltage > 0 ? 'Bzzzzzz' : '...',
-            default => throw new Exception('Should be unreachable'),
-        };
-    }
+//    public function getCry(): string
+//    {
+//        return match ($this->dto->type) {
 
-    private function getBaseSpeedWith(ParrotDTO $dto): float
-    {
-        return min(24.0, $dto->voltage * $this->getBaseSpeed());
-    }
+//            ParrotTypeEnum::NORWEGIAN_BLUE => $this->dto->voltage > 0 ? 'Bzzzzzz' : '...',
+//            default => throw new Exception('Should be unreachable'),
+//        };
+//    }
 
-    private function getLoadFactor(): float
-    {
-        return 9.0;
-    }
-
-    private function getBaseSpeed(): float
+    public function getBaseSpeed(): float
     {
         return 12.0;
     }
