@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace KataTests;
 
 use Kata\ChangeMe;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class ChangeMeTest extends TestCase
@@ -22,12 +23,20 @@ final class ChangeMeTest extends TestCase
         self::assertIsArray($changeMe->getItems());
     }
 
-    public function test_items_contains(): void
+    #[DataProvider('itemsProvider')]
+    public function test_items_contains($items): void
     {
         $changeMe = new ChangeMe();
-        self::assertTrue(in_array('scissors', $changeMe->getItems()));
-        self::assertTrue(in_array('paper', $changeMe->getItems()));
-        self::assertTrue(in_array('rock', $changeMe->getItems()));
+        self::assertTrue(in_array($items, $changeMe->getItems()));
+    }
+
+    public static function itemsProvider(): array
+    {
+        return [
+            ['scissors'],
+            ['paper'],
+            ['rock'],
+        ];
     }
 
 }
