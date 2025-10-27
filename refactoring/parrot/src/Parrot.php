@@ -14,10 +14,7 @@ class Parrot
 
 
     public function __construct(
-        /**
-         * @var int ParrotTypeEnum
-         */
-        private int $type,
+        private ParrotTypeEnum $type,
         private int $numberOfCoconuts,
         private float $voltage,
         private bool $isNailed

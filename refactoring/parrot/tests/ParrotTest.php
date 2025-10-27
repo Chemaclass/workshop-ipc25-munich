@@ -55,7 +55,7 @@ class ParrotTest extends TestCase
     public function testAnUnknownParrotWillWillThrownAnException(): void
     {
         $this->expectExceptionMessage('Should be unreachable');
-        $unknownParrot = new Parrot(-1, 0, 0, false);
+        $unknownParrot = new Parrot(ParrotTypeEnum::UNKNOWN, 0, 0, false);
         $unknownParrot->getSpeed();
     }
 
