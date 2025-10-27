@@ -31,4 +31,11 @@ final class RockPaperScissorsGameTest extends TestCase
         self::assertEquals('Player 1', $result);
     }
 
+    public function test_compare_hands_with_rock_and_paper(): void
+    {
+        $changeMe = new RockPaperScissorsGame();
+        $result = $changeMe->play('rock', 'paper');
+        self::assertEquals('Player 2', $result);
+    }
+
 }
