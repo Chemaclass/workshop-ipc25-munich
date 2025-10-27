@@ -6,6 +6,7 @@ namespace ParrotTests;
 
 use Parrot\Parrot;
 use Parrot\AfricanParrot;
+use Parrot\EuropeanParrot;
 use Parrot\ParrotTypeEnum;
 use PHPUnit\Framework\TestCase;
 
@@ -13,7 +14,7 @@ class ParrotTest extends TestCase
 {
     public function testSpeedOfEuropeanParrot(): void
     {
-        $parrot = new Parrot(ParrotTypeEnum::EUROPEAN, 0, 0, false);
+        $parrot = new EuropeanParrot(0, 0, false);
         self::assertSame(12.0, $parrot->getSpeed());
     }
 
@@ -62,7 +63,7 @@ class ParrotTest extends TestCase
 
     public function testGetCryOfEuropeanParrot(): void
     {
-        $parrot = new Parrot(ParrotTypeEnum::EUROPEAN, 0, 0, false);
+        $parrot = new EuropeanParrot(0, 0, false);
         self::assertSame('Sqoork!', $parrot->getCry());
     }
 
