@@ -43,4 +43,13 @@ final class GuessTheNumberGameTest extends TestCase
         self::assertEquals("higher", $guessTheNumberGame->guess(3));
         self::assertEquals("You win!", $guessTheNumberGame->guess(5));
     }
+
+    public function testRandomNumber(): void
+    {
+        $randomNumber = rand(1, 10);
+        $guessTheNumberGame = new GuessTheNumberGame($randomNumber);
+        self::assertEquals("lower", $guessTheNumberGame->guess($randomNumber+1));
+        self::assertEquals("higher", $guessTheNumberGame->guess($randomNumber-1));
+        self::assertEquals("You win!", $guessTheNumberGame->guess($randomNumber));
+    }
 }
