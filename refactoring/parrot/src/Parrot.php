@@ -10,6 +10,7 @@ class Parrot
 {
     public const LOAD_FACTOR = 9.0;
     public const BASE_SPEED = 12.0;
+    public const BASE_SPEED_FACTOR = 24.0;
 
 
     public function __construct(
@@ -30,7 +31,7 @@ class Parrot
     {
         return match ($this->type) {
             ParrotTypeEnum::EUROPEAN => self::BASE_SPEED,
-            ParrotTypeEnum::AFRICAN => max(0, self::BASE_SPEED - $this->getLoadFactor() * $this->numberOfCoconuts),
+            ParrotTypeEnum::AFRICAN => max(0, self::BASE_SPEED - self::LOAD_FACTOR * $this->numberOfCoconuts),
             ParrotTypeEnum::NORWEGIAN_BLUE => $this->isNailed ? 0 : $this->getBaseSpeedWith($this->voltage),
             default => throw new Exception('Should be unreachable'),
         };
@@ -51,16 +52,6 @@ class Parrot
 
     private function getBaseSpeedWith(float $voltage): float
     {
-        return min(24.0, $voltage * self::BASE_SPEED);
-    }
-
-    private function getLoadFactor(): float
-    {
-        return 9.0;
-    }
-
-    private function getBaseSpeed(): float
-    {
-        return 12.0;
+        return min(self::BASE_SPEED_FACTOR, $voltage * self::BASE_SPEED);
     }
 }
