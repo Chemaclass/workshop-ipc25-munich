@@ -38,13 +38,12 @@ class TennisGame1 implements TennisGame
 
     public function getStandingNameSamePoint(): string
     {
-        $score = match ($this->scorePlayer1) {
+       return match ($this->scorePlayer1) {
             0 => 'Love-All',
             1 => 'Fifteen-All',
             2 => 'Thirty-All',
             default => 'Deuce',
         };
-        return $score;
     }
 
     /**
@@ -54,15 +53,14 @@ class TennisGame1 implements TennisGame
     {
         $minusResult = $this->scorePlayer1 - $this->scorePlayer2;
         if($minusResult === 1) {
-            $score = 'Advantage player1';
+           return 'Advantage player1';
         } elseif($minusResult === -1) {
-            $score = 'Advantage player2';
+            return 'Advantage player2';
         } elseif($minusResult >= 2) {
-            $score = 'Win for player1';
+            return 'Win for player1';
         } else {
-            $score = 'Win for player2';
+           return 'Win for player2';
         }
-        return $score;
     }
 
     /**
