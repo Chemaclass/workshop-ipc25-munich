@@ -13,7 +13,7 @@ final class GuessingNumberGameTest extends TestCase
     {
         $game = new GuessingNumberGame(5);
 
-        self::assertTrue($game->play(5));
+        self::assertEquals('win', $game->play(5));
     }
 
     public function test_lower_number(): void
