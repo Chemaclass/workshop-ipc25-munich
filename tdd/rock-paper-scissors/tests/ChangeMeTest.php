@@ -9,32 +9,48 @@ use PHPUnit\Framework\TestCase;
 
 final class ChangeMeTest extends TestCase
 {
-    public function test_rock_bet_scissors(): void
+    public function test_rock_vs_scissors(): void
     {
         $kata = new Kata();
 
-        self::assertTrue($kata->player1Wins('rock', 'scissors'));
+        self::assertTrue($kata->playerWins('rock', 'scissors'));
     }
 
 
-    public function test_scissors_bet_rock(): void
+    public function test_scissors_vs_rock(): void
     {
         $kata = new Kata();
 
-        self::assertFalse($kata->player1Wins('scissors', 'rock'));
+        self::assertFalse($kata->playerWins('scissors', 'rock'));
     }
 
-    public function test_paper_bet_rock(): void
+    public function test_paper_vs_rock(): void
     {
         $kata = new Kata();
 
-        self::assertTrue($kata->player1Wins('paper', 'rock'));
+        self::assertTrue($kata->playerWins('paper', 'rock'));
     }
 
     public function test_rock_vs_paper(): void
     {
         $kata = new Kata();
 
-        self::assertFalse($kata->player1Wins('rock', 'paper'));
+        self::assertFalse($kata->playerWins('rock', 'paper'));
     }
+
+    public function test_scissors_vs_paper(): void
+    {
+        $kata = new Kata();
+
+        self::assertTrue($kata->playerWins('scissors', 'paper'));
+    }
+
+    public function test_paper_vs_scissors(): void
+    {
+        $kata = new Kata();
+
+        self::assertFalse($kata->playerWins('paper', 'scissors'));
+    }
+
+
 }

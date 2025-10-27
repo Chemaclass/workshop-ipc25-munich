@@ -6,13 +6,17 @@ namespace Kata;
 
 final class Kata
 {
-    public function player1Wins($player, $opponent): bool
+    public function playerWins($player, $opponent): bool
     {
         if ($player === 'rock' && $opponent === 'scissors') {
             return true;
         }
 
         if ($player === 'paper' && $opponent === 'rock') {
+            return true;
+        }
+
+        if ($player === 'scissors' && $opponent === 'paper') {
             return true;
         }
 
