@@ -30,7 +30,7 @@ class Parrot
     {
         return match ($this->type) {
             ParrotTypeEnum::EUROPEAN => self::BASE_SPEED,
-            ParrotTypeEnum::AFRICAN => max(0, self::BASE_SPEED - self::LOAD_FACTOR * $this->numberOfCoconuts),
+            ParrotTypeEnum::AFRICAN => $this->getSpeedAfrican(),
             ParrotTypeEnum::NORWEGIAN_BLUE => $this->isNailed ? 0 : $this->getBaseSpeedWith($this->voltage),
             default => throw new Exception('Should be unreachable'),
         };
@@ -52,5 +52,10 @@ class Parrot
     private function getBaseSpeedWith(float $voltage): float
     {
         return min(self::MINIMUM_VOLTAGE, $voltage * self::BASE_SPEED);
+    }
+
+    private function getSpeedAfrican(): float
+    {
+        return max(0, self::BASE_SPEED - self::LOAD_FACTOR * $this->numberOfCoconuts);
     }
 }
