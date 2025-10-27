@@ -36,6 +36,6 @@ final class GuessingNumberGameTest extends TestCase
 
         self::assertEquals('lower', $game->play(6));
         self::assertEquals('higher', $game->play(4));
-        self::assertEquals('higher', $game->play(7));
+        self::assertEquals('loose', $game->play(7));
     }
 }
