@@ -10,4 +10,9 @@ final class ChangeMe
     {
         return true;
     }
+
+    public function game(): bool
+    {
+        return true;
+    }
 }
