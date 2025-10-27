@@ -6,20 +6,28 @@ namespace Kata;
 
 final class Kata
 {
-    public function playerWins($player, $opponent): bool
+    public const WIN = 'win';
+    public const LOSE = 'lose';
+    public const DRAW = 'draw';
+
+    public function playerWins($player, $opponent): string
     {
         if ($player === 'rock' && $opponent === 'scissors') {
-            return true;
+            return self::WIN;
         }
 
         if ($player === 'paper' && $opponent === 'rock') {
-            return true;
+            return self::WIN;
         }
 
         if ($player === 'scissors' && $opponent === 'paper') {
-            return true;
+            return self::WIN;
         }
 
-        return false;
+        if ($player === $opponent) {
+            return self::DRAW;
+        }
+
+        return self::LOSE;
     }
 }
