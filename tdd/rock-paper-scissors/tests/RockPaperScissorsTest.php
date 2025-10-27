@@ -13,7 +13,6 @@ final class RockPaperScissorsTest extends TestCase
     #[ \PHPUnit\Framework\Attributes\DataProvider('handsProvider') ]
     public function testHands(string $playerHand, string $opponentHand, string $expectedResult): void
     {
-        $handsProvider = self::handsProvider();
         $rockPaperScissor = new RockPaperScissor();
         $this->assertEquals($expectedResult, $rockPaperScissor->playHands($playerHand, $opponentHand));
     }
