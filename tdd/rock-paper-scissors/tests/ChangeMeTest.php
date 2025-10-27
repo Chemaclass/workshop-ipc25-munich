@@ -11,21 +11,19 @@ use PHPUnit\Framework\TestCase;
 final class ChangeMeTest extends TestCase
 {
 
-    public function test_play_rock_rock(): void
+    #[DataProvider('dataProvider')]
+    public function test_draw(string $player1, string $player2, string $expected): void
     {
         $game = new RPSGame();
-        self::assertEquals('draw', $game->play('rock', 'rock'));
+        self::assertEquals($expected, $game->play($player1, $player2));
     }
 
-    public function test_play_paper_paper(): void
+    public static function dataProvider(): array
     {
-        $game = new RPSGame();
-        self::assertEquals('draw', $game->play('paper', 'paper'));
-    }
-
-    public function test_play_scissors_scissors(): void
-    {
-        $game = new RPSGame();
-        self::assertEquals('draw', $game->play('scissors', 'scissors'));
+        return [
+            ['rock', 'rock', 'draw'],
+            ['paper', 'paper', 'draw'],
+            ['scissors', 'scissors', 'draw'],
+        ];
     }
 }
