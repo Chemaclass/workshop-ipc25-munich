@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TennisGame;
 
+
 class TennisGame1 implements TennisGame
 {
     private int $playerOneScore = 0;
@@ -20,10 +21,10 @@ class TennisGame1 implements TennisGame
     {
         if ($playerName === $this->player1Name) {
             $this->playerOneScore++;
-        } 
-        
-        if ($playerName === $this->player2Name) {
+        } elseif ($playerName === $this->player2Name) {
             $this->playerTwoScore++;
+        } else {
+            throw new \Exception('No player');
         }
     }
 
@@ -31,7 +32,7 @@ class TennisGame1 implements TennisGame
     {
         $score = '';
         if ($this->playerOneScore === $this->playerTwoScore) {
-            $score = match ($this->playerOneScore) {
+            return match ($this->playerOneScore) {
                 0 => 'Love-All',
                 1 => 'Fifteen-All',
                 2 => 'Thirty-All',
@@ -39,14 +40,10 @@ class TennisGame1 implements TennisGame
             };
         } elseif ($this->playerOneScore >= 4 || $this->playerTwoScore >= 4) {
             $minusResult = $this->playerOneScore - $this->playerTwoScore;
-            if ($minusResult === 1) {
-                $score = 'Advantage player1';
-            } elseif ($minusResult === -1) {
-                $score = 'Advantage player2';
-            } elseif ($minusResult >= 2) {
-                $score = 'Win for player1';
+            if ($minusResult >= 1) {
+                $score = sprintf($minusResult === 1 ? 'Advantage %s' : 'Win for %s', $this->player1Name);
             } else {
-                $score = 'Win for player2';
+                $score = sprintf($minusResult === -1 ? 'Advantage %s' : 'Win for %s', $this->player2Name);
             }
         } else {
             for ($i = 1; $i < 3; $i++) {
@@ -68,6 +65,8 @@ class TennisGame1 implements TennisGame
                         break;
                     case 3:
                         $score .= 'Forty';
+                        break;
+                    default:
                         break;
                 }
             }
