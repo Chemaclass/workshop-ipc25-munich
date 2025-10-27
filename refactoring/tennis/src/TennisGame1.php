@@ -69,25 +69,15 @@ class TennisGame1 implements TennisGame
 
     private function getScoreWord(): string
     {
-        $score = '';
-        for ($i = 1; $i < 3; $i++) {
-
-            if ($i === 1) {
-                $tempScore = $this->player1Score;
-            } else {
-                $score     .= '-';
-                $tempScore = $this->player2Score;
-            }
-
-            $tempScoreWord = match ($tempScore) {
-                0 => 'Love',
-                1 => 'Fifteen',
-                2 => 'Thirty',
-                3 => 'Forty',
-            };
-            $score         .= $tempScoreWord;
-        }
-        return $score;
+        return $this->getTempScoreWord($this->player1Score) . "-" . $this->getTempScoreWord($this->player2Score);
     }
 
+    private function getTempScoreWord($tempScore) {
+        return match ($tempScore) {
+            0 => 'Love',
+            1 => 'Fifteen',
+            2 => 'Thirty',
+            3 => 'Forty',
+        };
+    }
 }
