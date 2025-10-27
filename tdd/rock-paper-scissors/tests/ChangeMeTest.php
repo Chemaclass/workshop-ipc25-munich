@@ -32,4 +32,7 @@ final class ChangeMeTest extends TestCase
         ];
     }
 
+    public function test_play(): void
+    {
+    }
 }
