@@ -6,16 +6,16 @@ namespace Kata;
 
 final class GuessTheNumberGame
 {
-    public function __construct(private int $number)
+    public function __construct(private readonly int $number)
     {
     }
 
     public function guess(int $guessingNumber): string
     {
-        if($this->number === 5) {
+        if($guessingNumber === $this->number  ) {
             return "You win!";
         }
 //        if($)
-        return false;
+        return 'lower';
     }
 }
