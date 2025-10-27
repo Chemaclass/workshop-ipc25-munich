@@ -30,21 +30,18 @@ class TennisGame1 implements TennisGame
 
     public function getScore(): string
     {
-  
         if ($this->playerOneScore === $this->playerTwoScore) {
             return $this->tie($this->playerOneScore);
-        } 
+        }
         if ($this->playerOneScore >= 4 || $this->playerTwoScore >= 4) {
             return $this->advantageOrWin();
-        } 
+        }
 
         return sprintf(
-            '%s-%s', 
+            '%s-%s',
             $this->getPlayerScore($this->playerOneScore),
             $this->getPlayerScore($this->playerTwoScore)
         );
-        
-
     }
 
     private function tie($score): string {
@@ -58,15 +55,14 @@ class TennisGame1 implements TennisGame
 
     private function advantageOrWin(): string {
         $minusResult = $this->playerOneScore - $this->playerTwoScore;
-            if ($minusResult >= 1) {
-                $score = sprintf($minusResult === 1 ? 'Advantage %s' : 'Win for %s', $this->player1Name);
-            } else {
-                $score = sprintf($minusResult === -1 ? 'Advantage %s' : 'Win for %s', $this->player2Name);
+            if ($minusResult >= 0) {
+                return sprintf($minusResult === 1 ? 'Advantage %s' : 'Win for %s', $this->player1Name);
             }
-            return $score;
+
+            return sprintf($minusResult === -1 ? 'Advantage %s' : 'Win for %s', $this->player2Name);
     }
 
-    private function getPlayerScore(int $score): string 
+    private function getPlayerScore(int $score): string
     {
         return match ($score) {
                 0 => 'Love',
