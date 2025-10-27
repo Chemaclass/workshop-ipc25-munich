@@ -2,7 +2,7 @@
 
 namespace Parrot;
 
-final class AfricanParrot extends Parrot
+final class NorwegianBlueParrot extends Parrot
 {
 
     public function __construct(
@@ -13,7 +13,7 @@ final class AfricanParrot extends Parrot
     )
     {
         
-        parent::__construct(ParrotTypeEnum::AFRICAN,
+        parent::__construct(ParrotTypeEnum::NORWEGIAN_BLUE,
           $numberOfCoconuts,
           $voltage,
           $isNailed
