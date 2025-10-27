@@ -10,6 +10,7 @@ use Parrot\EuropeanParrot;
 use Parrot\ParrotTypeEnum;
 use PHPUnit\Framework\TestCase;
 use Parrot\NorwegianBlueParrot;
+use Parrot\UnknownParrot;
 
 class ParrotTest extends TestCase
 {
@@ -58,7 +59,7 @@ class ParrotTest extends TestCase
     public function testAnUnknownParrotWillWillThrownAnException(): void
     {
         $this->expectExceptionMessage('Should be unreachable');
-        $unknownParrot = new Parrot(-1, 0, 0, false);
+        $unknownParrot = new UnknownParrot(0, 0, false);
         $unknownParrot->getSpeed();
     }
 

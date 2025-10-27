@@ -6,7 +6,7 @@ namespace Parrot;
 
 use Exception;
 
-class Parrot
+abstract class Parrot
 {
     private const float BASE_SPEED = 12.0;
     private const float LOAD_FACTOR = 9.0;

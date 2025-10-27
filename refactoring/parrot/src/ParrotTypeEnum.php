@@ -14,4 +14,5 @@ Enum ParrotTypeEnum
     public const int EUROPEAN = 0;
     public const int AFRICAN = 1;
     public const int NORWEGIAN_BLUE = 2;
+    public const int UNKNOWN = -1;
 }
