@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Kata;
 
-final class ChangeMe
+final class GuessTheNumberGame
 {
     public function changeMe(): bool
     {
