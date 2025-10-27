@@ -47,29 +47,24 @@ class TennisGame1 implements TennisGame
                 $score = 'Win for player2';
             }
         } else {
-            for ($i = 1; $i < 3; $i++) {
-                if ($i === 1) {
-                    $tempScore = $this->player1Score;
-                } else {
-                    $score .= '-';
-                    $tempScore = $this->player2Score;
-                }
-                switch ($tempScore) {
-                    case 0:
-                        $score .= 'Love';
-                        break;
-                    case 1:
-                        $score .= 'Fifteen';
-                        break;
-                    case 2:
-                        $score .= 'Thirty';
-                        break;
-                    case 3:
-                        $score .= 'Forty';
-                        break;
-                }
-            }
+            return $this->getScoreByName($this->player1Score) . '-' . $this->getScoreByName($this->player2Score);
         }
         return $score;
+    }
+
+    public function getScoreByName(int $score): string
+    {
+        switch ($score) {
+            case 0:
+                return 'Love';
+            case 1:
+                return 'Fifteen';
+            case 2:
+                return 'Thirty';
+            case 3:
+                return 'Forty';
+            default:
+                return '';
+        }
     }
 }
