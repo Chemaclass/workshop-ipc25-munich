@@ -66,6 +66,10 @@ abstract class Parrot
 
     private function getCryNorwegianBlue(): string
     {
-        return $this->voltage > 0 ? ParrotCryEnum::NORWEGIAN_BLUE_VOLT_0 : ParrotCryEnum::NORWEGIAN_BLUE_VOLT_N;
+        return $this->hasVoltage() ? ParrotCryEnum::NORWEGIAN_BLUE_VOLT_0 : ParrotCryEnum::NORWEGIAN_BLUE_VOLT_N;
+    }
+    
+    private function hasVoltage(): boolean {
+      return $this->voltage > 0;
     }
 }
