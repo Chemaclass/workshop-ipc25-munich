@@ -24,24 +24,9 @@ final class ChangeMeTest extends TestCase
             ['rock', 'rock', 'draw'],
             ['paper', 'paper', 'draw'],
             ['scissors', 'scissors', 'draw'],
+            ['rock', 'scissors', 'player1'],
+            ['scissors', 'rock', 'player2'],
+            ['paper', 'rock', 'player1'],
         ];
-    }
-
-    public function test_rock_scissors(): void
-    {
-        $game = new RPSGame();
-        self::assertEquals('player1', $game->play('rock', 'scissors'));
-    }
-
-    public function test_scissors_rock(): void
-    {
-        $game = new RPSGame();
-        self::assertEquals('player2', $game->play('scissors', 'rock'));
-    }
-
-    public function test_rock_paper(): void
-    {
-        $game = new RPSGame();
-        self::assertEquals('player1', $game->play('paper', 'rock'));
     }
 }
