@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace KataTests;
 
-use Kata\ChangeMe;
+use Kata\Kata;
 use PHPUnit\Framework\TestCase;
 
 final class ChangeMeTest extends TestCase
 {
-    public function test_change_me(): void
+    public function test_rock_bet_scissors(): void
     {
-        $changeMe = new ChangeMe();
+        $kata = new Kata();
 
-        self::assertTrue($changeMe->changeMe());
+        self::assertTrue($kata->check('rock', 'scissor'));
     }
 }
