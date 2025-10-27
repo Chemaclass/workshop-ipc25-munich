@@ -8,6 +8,6 @@ final class ChangeMe
 {
     public function changeMe(): bool
     {
-        return true;
+        return false;
     }
 }
