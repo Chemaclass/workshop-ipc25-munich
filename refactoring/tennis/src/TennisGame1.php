@@ -6,37 +6,33 @@ namespace TennisGame;
 
 class TennisGame1 implements TennisGame
 {
-    private int $m_score1 = 0;
+    private int $scorePlayer1 = 0;
 
-    private int $m_score2 = 0;
+    private int $scorePlayer2 = 0;
 
     public function __construct(
         private string $player1Name,
         private string $player2Name
-    ) {
+    )
+    {
     }
 
     public function wonPoint(string $playerName): void
     {
         if ($playerName === 'player1') {
-            $this->m_score1++;
+            $this->scorePlayer1++;
         } else {
-            $this->m_score2++;
+            $this->scorePlayer2++;
         }
     }
 
     public function getScore(): string
     {
         $score = '';
-        if ($this->m_score1 === $this->m_score2) {
-            $score = match ($this->m_score1) {
-                0 => 'Love-All',
-                1 => 'Fifteen-All',
-                2 => 'Thirty-All',
-                default => 'Deuce',
-            };
-        } elseif ($this->m_score1 >= 4 || $this->m_score2 >= 4) {
-            $minusResult = $this->m_score1 - $this->m_score2;
+        if ($this->scorePlayer1 === $this->scorePlayer2) {
+            $score = $this->getStr();
+        } elseif ($this->scorePlayer1 >= 4 || $this->scorePlayer2 >= 4) {
+            $minusResult = $this->scorePlayer1 - $this->scorePlayer2;
             if ($minusResult === 1) {
                 $score = 'Advantage player1';
             } elseif ($minusResult === -1) {
@@ -49,10 +45,10 @@ class TennisGame1 implements TennisGame
         } else {
             for ($i = 1; $i < 3; $i++) {
                 if ($i === 1) {
-                    $tempScore = $this->m_score1;
+                    $tempScore = $this->scorePlayer1;
                 } else {
                     $score .= '-';
-                    $tempScore = $this->m_score2;
+                    $tempScore = $this->scorePlayer2;
                 }
                 switch ($tempScore) {
                     case 0:
@@ -70,6 +66,17 @@ class TennisGame1 implements TennisGame
                 }
             }
         }
+        return $score;
+    }
+
+    public function getStr(): string
+    {
+        $score = match ($this->scorePlayer1) {
+            0 => 'Love-All',
+            1 => 'Fifteen-All',
+            2 => 'Thirty-All',
+            default => 'Deuce',
+        };
         return $score;
     }
 }
