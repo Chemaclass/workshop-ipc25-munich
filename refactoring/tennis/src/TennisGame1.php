@@ -29,17 +29,13 @@ class TennisGame1 implements TennisGame
 
     public function getScore(): string
     {
-        $score = '';
         if ($this->player1Score === $this->player2Score) {
-            $score = $this->draw();
-        } elseif ($this->player1Score >= 4 || $this->player2Score >= 4) {
-            $score = $this->getMinusResult();
-        } else {
-            for ($i = 1; $i < 3; $i++) {
-                $score = $this->getScoreWord($i, $score);
-            }
+            return $this->draw();
         }
-        return $score;
+        if ($this->player1Score >= 4 || $this->player2Score >= 4) {
+            return $this->getMinusResult();
+        }
+        return $this->getScoreWord();
     }
 
     private function draw(): string
@@ -71,23 +67,27 @@ class TennisGame1 implements TennisGame
         return 'Win for player2';
     }
 
-    private function getScoreWord(int $i, string $score): string
+    private function getScoreWord(): string
     {
-        if ($i === 1) {
-            $tempScore = $this->player1Score;
-        } else {
-            $score     .= '-';
-            $tempScore = $this->player2Score;
+        $score = '';
+        for ($i = 1; $i < 3; $i++) {
+
+            if ($i === 1) {
+                $tempScore = $this->player1Score;
+            } else {
+                $score     .= '-';
+                $tempScore = $this->player2Score;
+            }
+
+            $tempScoreWord = match ($tempScore) {
+                0 => 'Love',
+                1 => 'Fifteen',
+                2 => 'Thirty',
+                3 => 'Forty',
+            };
+            $score         .= $tempScoreWord;
         }
-
-        $tempScoreWord = match ($tempScore) {
-            0 => 'Love',
-            1 => 'Fifteen',
-            2 => 'Thirty',
-            3 => 'Forty',
-        };
-
-        return $score . $tempScoreWord;
+        return $score;
     }
 
 }
