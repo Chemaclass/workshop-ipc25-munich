@@ -11,15 +11,15 @@ class TennisGame1 implements TennisGame
     private int $scorePlayer2 = 0;
 
     public function __construct(
-        private string $player1Name,
-        private string $player2Name
+        private readonly string $player1Name,
+        private readonly string $player2Name
     )
     {
     }
 
     public function wonPoint(string $playerName): void
     {
-        if ($playerName === 'player1') {
+        if ($playerName === $this->player1Name) {
             $this->scorePlayer1++;
         } else {
             $this->scorePlayer2++;
