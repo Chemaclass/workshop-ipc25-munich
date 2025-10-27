@@ -29,18 +29,9 @@ class TennisGame1 implements TennisGame
     {
         $score = '';
         if ($this->m_score1 === $this->m_score2) {
-            $score = $this->draw($this->m_score2);
+            $score = $this->draw();
         } elseif ($this->m_score1 >= 4 || $this->m_score2 >= 4) {
-            $minusResult = $this->m_score1 - $this->m_score2;
-            if ($minusResult === 1) {
-                $score = 'Advantage player1';
-            } elseif ($minusResult === -1) {
-                $score = 'Advantage player2';
-            } elseif ($minusResult >= 2) {
-                $score = 'Win for player1';
-            } else {
-                $score = 'Win for player2';
-            }
+            $score = $this->getMinusResult();
         } else {
             for ($i = 1; $i < 3; $i++) {
                 if ($i === 1) {
@@ -68,12 +59,30 @@ class TennisGame1 implements TennisGame
         return $score;
     }
 
-    private function draw($score) {
-        return match ($score) {
+    private function draw(): string {
+        return match ($this->m_score1) {
             0 => 'Love-All',
             1 => 'Fifteen-All',
             2 => 'Thirty-All',
             default => 'Deuce',
         };
+    }
+
+    /**
+     * @return string
+     */
+    private function getMinusResult(): string
+    {
+        $minusResult = $this->m_score1 - $this->m_score2;
+        if ($minusResult === 1) {
+            $score = 'Advantage player1';
+        } elseif ($minusResult === -1) {
+            $score = 'Advantage player2';
+        } elseif ($minusResult >= 2) {
+            $score = 'Win for player1';
+        } else {
+            $score = 'Win for player2';
+        }
+        return $score;
     }
 }
