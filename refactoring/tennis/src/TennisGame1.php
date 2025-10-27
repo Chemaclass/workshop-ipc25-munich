@@ -13,13 +13,12 @@ class TennisGame1 implements TennisGame
     public function __construct(
         private readonly string $player1Name,
         private readonly string $player2Name
-    )
-    {
+    ) {
     }
 
     public function wonPoint(string $playerName): void
     {
-        if ($playerName === $this->player1Name) {
+        if($playerName === $this->player1Name) {
             $this->scorePlayer1++;
         } else {
             $this->scorePlayer2++;
@@ -28,17 +27,17 @@ class TennisGame1 implements TennisGame
 
     public function getScore(): string
     {
-        if ($this->isTie()) {
+        if($this->isTie()) {
             return $this->getStandingNameSamePoint();
-        } elseif ($this->isAdvantage()) {
+        } elseif($this->isAdvantage()) {
             return $this->getStandingNameAdvantage();
         }
-        return  $this->getStandingNameRegular('');
+        return $this->getStandingNameRegular('');
     }
 
     public function getStandingNameSamePoint(): string
     {
-       return match ($this->scorePlayer1) {
+        return match ($this->scorePlayer1) {
             0 => 'Love-All',
             1 => 'Fifteen-All',
             2 => 'Thirty-All',
@@ -53,14 +52,19 @@ class TennisGame1 implements TennisGame
     {
         $minusResult = $this->scorePlayer1 - $this->scorePlayer2;
         if($minusResult === 1) {
-           return 'Advantage player1';
+            return $this->getAdvantageName($this->player1Name);
         } elseif($minusResult === -1) {
-            return 'Advantage player2';
+            return $this->getAdvantageName($this->player2Name);
         } elseif($minusResult >= 2) {
             return 'Win for player1';
         } else {
-           return 'Win for player2';
+            return 'Win for player2';
         }
+    }
+
+    private function getAdvantageName(string $playerName): string
+    {
+        return "Advantage " . $playerName;
     }
 
     /**
