@@ -5,8 +5,13 @@ namespace Kata;
 class StubGenerator
 {
     public function __construct(
-        public readonly int $number
+        private readonly int $number
     )
     {
+    }
+
+    public function getNumber(): int
+    {
+        return $this->number;
     }
 }

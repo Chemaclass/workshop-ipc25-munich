@@ -19,6 +19,14 @@ final class GessingNumberGame
 
     public function guessNumber(int $guessNumber): string
     {
+        if ($this->stubGenerator->getNumber() < $guessNumber) {
+            return self::LOWER;
+        }
+
+        if ($this->stubGenerator->getNumber() > $guessNumber) {
+            return self::HIGHER;
+        }
+
         return self::WIN;
     }
 }
