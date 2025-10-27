@@ -17,6 +17,10 @@ final class RPSGame
         {
             return 'player1';
         }
+        if($player1 === 'scissors' && $player2 === 'rock')
+        {
+            return 'player2';
+        }
     }
 
 }
