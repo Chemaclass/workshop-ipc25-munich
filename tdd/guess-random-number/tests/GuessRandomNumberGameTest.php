@@ -35,4 +35,13 @@ final class GuessRandomNumberGameTest extends TestCase
         self::assertEquals('higher', $changeMe->game(10));
         self::assertEquals('even', $changeMe->game(5));
     }
+
+    public function test_gerated_number()
+    {
+        $game = new GuessRandomNumberGame();
+        $generatedNumber = $game->generate();
+        self::assertIsInt($generatedNumber);
+        self::assertLessThanOrEqual(10, $generatedNumber);
+    }
+
 }
