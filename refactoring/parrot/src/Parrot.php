@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Parrot;
 
-use Exception;
+use UnkownParrotException;
 
 abstract class Parrot
 {
@@ -24,7 +24,7 @@ abstract class Parrot
     }
 
     /**
-     * @throws Exception
+     * @throws UnkownParrotException
      */
     public function getSpeed(): float
     {
@@ -32,12 +32,12 @@ abstract class Parrot
             ParrotTypeEnum::EUROPEAN => self::BASE_SPEED,
             ParrotTypeEnum::AFRICAN => $this->getSpeedAfrican(),
             ParrotTypeEnum::NORWEGIAN_BLUE => $this->getSpeedNorwegianBlue(),
-            default => throw new Exception('Should be unreachable'),
+            default => throw new UnkownParrotException('Should be unreachable'),
         };
     }
 
     /**
-     * @throws Exception
+     * @throws UnkownParrotException
      */
     public function getCry(): string
     {
@@ -45,7 +45,7 @@ abstract class Parrot
             ParrotTypeEnum::EUROPEAN => ParrotCryEnum::EUROPEAN,
             ParrotTypeEnum::AFRICAN => ParrotCryEnum::AFRICAN,
             ParrotTypeEnum::NORWEGIAN_BLUE => $this->getCryNorwegianBlue(),
-            default => throw new Exception('Should be unreachable'),
+            default => throw new UnkownParrotException('Should be unreachable'),
         };
     }
 

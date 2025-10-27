@@ -11,6 +11,7 @@ use Parrot\ParrotTypeEnum;
 use PHPUnit\Framework\TestCase;
 use Parrot\NorwegianBlueParrot;
 use Parrot\UnknownParrot;
+use Parrot\UnkownParrotException;
 
 class ParrotTest extends TestCase
 {
