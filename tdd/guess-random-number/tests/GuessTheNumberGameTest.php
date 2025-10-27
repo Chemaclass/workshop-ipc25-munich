@@ -53,5 +53,13 @@ final class GuessTheNumberGameTest extends TestCase
         self::assertEquals("You win!", $guessTheNumberGame->guess($randomNumber));
     }
 
+    #DataProvider tries()
+
+    public static function tries():iterable{
+        yield ['lower', 4];
+        yield ['higher', 6];
+        yield ['You win!', 5];
+    }
+
 //    public function
 }
