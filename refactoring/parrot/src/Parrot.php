@@ -6,6 +6,7 @@ namespace Parrot;
 
 use Exception;
 
+
 class Parrot
 {
     public function __construct(
