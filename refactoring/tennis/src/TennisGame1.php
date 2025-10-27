@@ -27,7 +27,6 @@ class TennisGame1 implements TennisGame
 
     public function getScore(): string
     {
-        $score = '';
         if ($this->player1Score === $this->player2Score) {
             return $this->player1Score > 2
               ? 'Deuce'
@@ -42,14 +41,11 @@ class TennisGame1 implements TennisGame
             if ($this->player1Score > $this->player2Score) {
               return 'Advantage player1';
             }
-            if ($this->player2Score > $this->player1Score) {
-              return 'Advantage player2';
-            }
-            # trow new \Exception('You should not be here');
+
+            return 'Advantage player2';
         } else {
             return $this->getScoreByName($this->player1Score) . '-' . $this->getScoreByName($this->player2Score);
         }
-        return $score;
     }
 
     public function getScoreByName(int $score): string
