@@ -9,9 +9,9 @@ use PHPUnit\Framework\TestCase;
 
 final class GuessingNumberGameTest extends TestCase
 {
-    public function test_change_me(): void
+    public function test_same_number(): void
     {
-        $game = new GuessingNumberGame();
+        $game = new GuessingNumberGame(5);
 
         self::assertTrue($game->play(5));
     }
