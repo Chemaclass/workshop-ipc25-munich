@@ -29,6 +29,7 @@ final class ChangeMeTest extends TestCase
             ['paper', 'rock', 'player1'],
             ['rock', 'paper', 'player2'],
             ['scissors', 'paper', 'player1'],
+            ['paper', 'scissors', 'player2'],
         ];
     }
 }
