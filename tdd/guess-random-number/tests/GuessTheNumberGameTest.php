@@ -9,12 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 final class GuessTheNumberGameTest extends TestCase
 {
-    public function test_change_me(): void
-    {
-        $guessTheNumberGame = new GuessTheNumberGame();
-
-        self::assertTrue($guessTheNumberGame->changeMe());
-    }
 
     public function testWinOnFirstGuess(): void
     {

@@ -6,7 +6,7 @@ namespace Kata;
 
 final class GuessTheNumberGame
 {
-    public function __construct(private int $number)
+    public function __construct(private ?int $number)
     {
     }
 
@@ -15,5 +15,6 @@ final class GuessTheNumberGame
         if($this->number === 5) {
             return true;
         }
+        return false;
     }
 }
