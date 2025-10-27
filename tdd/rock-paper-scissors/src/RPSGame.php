@@ -13,17 +13,16 @@ final class RPSGame
             return 'draw';
         }
 
-        if($player1 === 'rock' && $player2 === 'scissors')
+        if(
+            ($player1 === 'rock' && $player2 === 'scissors')
+            || ($player1 === 'paper' && $player2 === 'rock')
+        )
         {
             return 'player1';
         }
         if($player1 === 'scissors' && $player2 === 'rock')
         {
             return 'player2';
-        }
-        if($player1 === 'paper' && $player2 === 'rock')
-        {
-            return 'player1';
         }
 
         return '';
