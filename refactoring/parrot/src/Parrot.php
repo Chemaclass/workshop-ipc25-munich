@@ -9,9 +9,8 @@ use Exception;
 class Parrot
 {
     private ParrotDTO $dto;
-    public function __construct(
-        ParrotDTO $dto
-    ) {
+
+    public function __construct(ParrotDTO $dto) {
         $this->dto = $dto;
     }
 
@@ -41,9 +40,9 @@ class Parrot
         };
     }
 
-    private function getBaseSpeedWith(float $voltage): float
+    private function getBaseSpeedWith(ParrotDTO $dto): float
     {
-        return min(24.0, $voltage * $this->getBaseSpeed());
+        return min(24.0, $dto->voltage * $this->getBaseSpeed());
     }
 
     private function getLoadFactor(): float
