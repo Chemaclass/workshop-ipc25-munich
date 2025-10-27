@@ -7,7 +7,7 @@ namespace KataTests;
 use Kata\RockPaperScissor;
 use PHPUnit\Framework\TestCase;
 
-final class ChangeMeTest extends TestCase
+final class RockPaperScissorsTest extends TestCase
 {
 
     public function testChooseRockAgainstScissors(): void
