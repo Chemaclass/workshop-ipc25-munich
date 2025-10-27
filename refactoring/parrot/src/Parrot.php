@@ -8,6 +8,11 @@ use Exception;
 
 class Parrot
 {
+    public const CRY_EUROPEAN = 'Sqoork!';
+    public const CRY_AFRICAN = 'Sqaark!';
+    public const CRY_NORWEGIAN_BLUE = 'Bzzzzzz';
+
+
     public function __construct(
         /**
          * @var int ParrotTypeEnum
@@ -38,9 +43,9 @@ class Parrot
     public function getCry(): string
     {
         return match ($this->type) {
-            ParrotTypeEnum::EUROPEAN => 'Sqoork!',
-            ParrotTypeEnum::AFRICAN => 'Sqaark!',
-            ParrotTypeEnum::NORWEGIAN_BLUE => $this->voltage > 0 ? 'Bzzzzzz' : '...',
+            ParrotTypeEnum::EUROPEAN => self::CRY_EUROPEAN,
+            ParrotTypeEnum::AFRICAN => self::CRY_AFRICAN,
+            ParrotTypeEnum::NORWEGIAN_BLUE => $this->voltage > 0 ? self::CRY_NORWEGIAN_BLUE : '...',
             default => throw new Exception('Should be unreachable'),
         };
     }
