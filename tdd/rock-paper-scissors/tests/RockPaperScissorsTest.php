@@ -10,21 +10,18 @@ use PHPUnit\Framework\TestCase;
 final class RockPaperScissorsTest extends TestCase
 {
 
-    public function testChooseRockAgainstScissors(): void
+    #[ \PHPUnit\Framework\Attributes\DataProvider('handsProvider') ]
+    public function testHands(): void
     {
         $rockPaperScissor = new RockPaperScissor();
         $this->assertEquals(RockPaperScissor::PLAYER_WINS, $rockPaperScissor->playHands('rock', 'scissors'));
     }
-
-    public function testChooseScissorsAgainstRock(): void
+    public static function handsProvider(): array
     {
-        $rockPaperScissor = new RockPaperScissor();
-        $this->assertEquals(RockPaperScissor::OPPONENT_WINS, $rockPaperScissor->playHands('scissors', 'rock'));
-    }
-
-    public function testPaperBeatsRock(): void
-    {
-        $rockPaperScissor = new RockPaperScissor();
-        $this->assertEquals(RockPaperScissor::PLAYER_WINS, $rockPaperScissor->playHands('paper', 'rock'));
+        return [
+            ['rock', 'scissors', RockPaperScissor::PLAYER_WINS],
+            ['scissors', 'rock', RockPaperScissor::OPPONENT_WINS],
+            ['paper', 'rock', RockPaperScissor::PLAYER_WINS],
+        ];
     }
 }
