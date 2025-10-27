@@ -8,7 +8,7 @@ final class GuessTheNumberGame
 {
     private int $guessesCount = 0;
 
-    public function __construct(private readonly int $number)
+    public function __construct(private int $number)
     {
     }
 
