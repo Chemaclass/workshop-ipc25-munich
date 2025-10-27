@@ -15,6 +15,6 @@ final class ChangeMeTest extends TestCase
     {
         $game = new RPSGame();
 
-
+        self::assertEquals('draw', $game->play('rock', 'rock'));
     }
 }
