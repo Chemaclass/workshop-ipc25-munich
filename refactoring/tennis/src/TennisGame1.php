@@ -36,16 +36,19 @@ class TennisGame1 implements TennisGame
                 default => 'Deuce',
             };
         } elseif ($this->player1Score >= 4 || $this->player2Score >= 4) {
-            $minusResult = $this->player1Score - $this->player2Score;
-            if ($minusResult === 1) {
-                $score = 'Advantage player1';
-            } elseif ($minusResult === -1) {
-                $score = 'Advantage player2';
-            } elseif ($minusResult >= 2) {
-                $score = 'Win for player1';
-            } else {
-                $score = 'Win for player2';
+            if ($this->player1Score > ($this->player2Score + 1)) {
+              return 'Win for player1';
             }
+            if ($this->player2Score > ($this->player1Score + 1)) {
+              return 'Win for player2';
+            }
+            if ($this->player1Score > $this->player2Score) {
+              return 'Advantage player1';
+            }
+            if ($this->player2Score > $this->player1Score) {
+              return 'Advantage player2';
+            }
+            # trow new \Exception('You should not be here');
         } else {
             return $this->getScoreByName($this->player1Score) . '-' . $this->getScoreByName($this->player2Score);
         }
