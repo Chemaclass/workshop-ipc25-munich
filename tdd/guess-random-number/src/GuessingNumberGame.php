@@ -12,10 +12,13 @@ final class GuessingNumberGame
         $this->randomNumber = $number;
     }
     
-    public function play(int $playerNumber): bool
+    public function play(int $playerNumber): string|bool
     {
         if ($playerNumber === $this->randomNumber) {
             return true;
+        }
+        if ($playerNumber < $this->randomNumber) {
+            return 'lower';
         }
         return false;
     }
