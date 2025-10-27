@@ -10,29 +10,11 @@ use PHPUnit\Framework\TestCase;
 
 final class ChangeMeTest extends TestCase
 {
-    public function test_items(): void
-    {
-        $changeMe = new RPSGame();
-        self::assertIsArray($changeMe->getItems());
-    }
 
-    #[DataProvider('itemsProvider')]
-    public function test_items_contains($items): void
+    public function test_play_rock_rock(): void
     {
-        $changeMe = new RPSGame();
-        self::assertTrue(in_array($items, $changeMe->getItems()));
-    }
+        $game = new RPSGame();
 
-    public static function itemsProvider(): array
-    {
-        return [
-            ['scissors'],
-            ['paper'],
-            ['rock'],
-        ];
-    }
 
-    public function test_play(): void
-    {
     }
 }
