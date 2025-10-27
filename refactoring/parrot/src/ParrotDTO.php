@@ -2,4 +2,9 @@
 
 namespace Parrot;
 
-class ParrotDTO {}
+class ParrotDTO {
+    public $type;
+    public $numberOfCoconuts;
+    public $voltage;
+    public $isNailed;
+}

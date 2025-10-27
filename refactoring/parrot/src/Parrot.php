@@ -8,15 +8,11 @@ use Exception;
 
 class Parrot
 {
+    private ParrotDTO $dto;
     public function __construct(
-        /**
-         * @var int ParrotTypeEnum
-         */
-        private int $type,
-        private int $numberOfCoconuts,
-        private float $voltage,
-        private bool $isNailed
+        ParrotDTO $dto
     ) {
+        $this->dto = $dto;
     }
 
     /**
@@ -24,10 +20,10 @@ class Parrot
      */
     public function getSpeed(): float
     {
-        return match ($this->type) {
+        return match ($this->dto->type) {
             ParrotTypeEnum::EUROPEAN => $this->getBaseSpeed(),
-            ParrotTypeEnum::AFRICAN => max(0, $this->getBaseSpeed() - $this->getLoadFactor() * $this->numberOfCoconuts),
-            ParrotTypeEnum::NORWEGIAN_BLUE => $this->isNailed ? 0 : $this->getBaseSpeedWith($this->voltage),
+            ParrotTypeEnum::AFRICAN => max(0, $this->getBaseSpeed() - $this->getLoadFactor() * $this->dto->numberOfCoconuts),
+            ParrotTypeEnum::NORWEGIAN_BLUE => $this->dto->isNailed ? 0 : $this->getBaseSpeedWith($this->dto->voltage),
             default => throw new Exception('Should be unreachable'),
         };
     }
@@ -37,10 +33,10 @@ class Parrot
      */
     public function getCry(): string
     {
-        return match ($this->type) {
+        return match ($this->dto->type) {
             ParrotTypeEnum::EUROPEAN => 'Sqoork!',
             ParrotTypeEnum::AFRICAN => 'Sqaark!',
-            ParrotTypeEnum::NORWEGIAN_BLUE => $this->voltage > 0 ? 'Bzzzzzz' : '...',
+            ParrotTypeEnum::NORWEGIAN_BLUE => $this->dto->voltage > 0 ? 'Bzzzzzz' : '...',
             default => throw new Exception('Should be unreachable'),
         };
     }
