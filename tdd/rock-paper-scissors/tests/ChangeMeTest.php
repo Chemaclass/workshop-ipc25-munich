@@ -59,4 +59,5 @@ final class ChangeMeTest extends TestCase
             ['rock', 'paper', 'player2'],
         ];
     }
+
 }
