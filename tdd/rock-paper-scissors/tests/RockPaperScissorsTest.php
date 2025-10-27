@@ -19,10 +19,10 @@ final class RockPaperScissorsTest extends TestCase
     public static function handsProvider(): array
     {
         return [
-            ['rock', 'scissors', RockPaperScissor::PLAYER_WINS],
-            ['scissors', 'rock', RockPaperScissor::OPPONENT_WINS],
-            ['paper', 'rock', RockPaperScissor::PLAYER_WINS],
-            ['rock', 'paper', RockPaperScissor::OPPONENT_WINS],
+            [RockPaperScissor::ROCK, RockPaperScissor::SCISSORS, RockPaperScissor::PLAYER_WINS],
+            [RockPaperScissor::SCISSORS, RockPaperScissor::ROCK, RockPaperScissor::OPPONENT_WINS],
+            [RockPaperScissor::PAPER, RockPaperScissor::ROCK, RockPaperScissor::PLAYER_WINS],
+            [RockPaperScissor::ROCK, RockPaperScissor::PAPER, RockPaperScissor::OPPONENT_WINS],
         ];
     }
 }
