@@ -22,21 +22,12 @@ final class ChangeMeTest extends TestCase
         self::assertIsArray($changeMe->getItems());
     }
 
-    public function test_items_scissors(): void
+    public function test_items_contains(): void
     {
         $changeMe = new ChangeMe();
         self::assertTrue(in_array('scissors', $changeMe->getItems()));
-    }
-
-    public function test_items_paper(): void
-    {
-        $changeMe = new ChangeMe();
         self::assertTrue(in_array('paper', $changeMe->getItems()));
-    }
-
-    public function test_items_rock(): void
-    {
-        $changeMe = new ChangeMe();
         self::assertTrue(in_array('rock', $changeMe->getItems()));
     }
+
 }
