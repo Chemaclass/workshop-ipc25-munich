@@ -10,7 +10,7 @@ final class GessingNumberGame
 
     public function __construct
     (
-        readonly StubGenerator $number
+        readonly StubGenerator $stubGenerator
     )
     {
     }
