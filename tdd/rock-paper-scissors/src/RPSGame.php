@@ -21,6 +21,8 @@ final class RPSGame
         {
             return 'player2';
         }
+
+        return '';
     }
 
 }
