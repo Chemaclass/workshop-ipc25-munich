@@ -12,6 +12,10 @@ final class Kata
             return true;
         }
 
+        if ($player === 'paper' && $opponent === 'rock') {
+            return true;
+        }
+
         return false;
     }
 }
