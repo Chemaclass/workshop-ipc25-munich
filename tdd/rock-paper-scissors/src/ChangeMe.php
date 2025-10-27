@@ -10,4 +10,16 @@ final class ChangeMe
     {
         return true;
     }
+
+    public function play(string $playerOne, string $playerTwo): string
+    {
+        if($playerOne === 'rock' && $playerTwo === 'scissors') {
+            return 'Player 1';
+        }
+
+        return '';
+
+    }
+
+    
 }

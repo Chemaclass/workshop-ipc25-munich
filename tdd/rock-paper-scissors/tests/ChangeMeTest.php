@@ -15,4 +15,13 @@ final class ChangeMeTest extends TestCase
 
         self::assertTrue($changeMe->changeMe());
     }
+
+    public function test_compare_hands_with_rock_and_scissors(): void
+    {
+        $changeMe = new ChangeMe();
+        $result = $changeMe->play('rock', 'scissors');
+        self::assertEquals('Player 1', $result);
+    }
+
+
 }
