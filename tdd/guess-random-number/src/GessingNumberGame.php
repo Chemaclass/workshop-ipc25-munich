@@ -8,8 +8,9 @@ final class GessingNumberGame
 {
     public const WIN = 'You win!';
 
-    public function __construtor(
-        private readonly int $number
+    public function __construct
+    (
+        readonly StubGenerator $number
     )
     {
     }
