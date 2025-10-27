@@ -6,19 +6,23 @@ namespace Kata;
 
 final class GuessRandomNumberGame
 {
+    public function __construct(
+        public int $randomNumber = 5
+    )
+    {}
     public function game(int $number): string
     {
-        if($number < 5)
+        if($number < $this->randomNumber)
         {
             return 'lower';
         }
 
-        if($number > 5)
+        if($number > $this->randomNumber)
         {
             return 'higher';
         }
 
-        if($number === 5)
+        if($number === $this->randomNumber)
         {
             return 'even';
         }

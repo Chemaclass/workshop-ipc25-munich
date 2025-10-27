@@ -27,4 +27,12 @@ final class GuessRandomNumberGameTest extends TestCase
         $changeMe = new GuessRandomNumberGame();
         self::assertSame('lower', $changeMe->game(1));
     }
+
+    public function test_attempts()
+    {
+        $changeMe = new GuessRandomNumberGame();
+        self::assertEquals('lower', $changeMe->game(1));
+        self::assertEquals('higher', $changeMe->game(10));
+        self::assertEquals('even', $changeMe->game(5));
+    }
 }
