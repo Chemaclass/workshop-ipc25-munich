@@ -26,4 +26,10 @@ final class ChangeMeTest extends TestCase
             ['scissors', 'scissors', 'draw'],
         ];
     }
+
+    public function test_rock_scissors(): void
+    {
+        $game = new RPSGame();
+        self::assertEquals('player1', $game->play('rock', 'scissors'));
+    }
 }
