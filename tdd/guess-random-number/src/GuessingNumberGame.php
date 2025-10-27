@@ -9,15 +9,15 @@ final class GuessingNumberGame
     private int $randomNumber;
     private int $attempts = 0;
 
-    public function __construct(int $number)
+    public function __construct(StubGenerator $stubGenerator)
     {
-        $this->randomNumber = $number;
+        $this->randomNumber = $stubGenerator->number;
     }
 
     public function play(int $playerNumber): string
     {
         if ($this->attempts >= 3) {
-            return 'loose';
+            return "game over";
         }
         $this->attempts++;
         if ($playerNumber === $this->randomNumber) {
@@ -29,5 +29,7 @@ final class GuessingNumberGame
         if ($playerNumber > $this->randomNumber) {
             return $this->attempts < 3 ? 'lower' : 'loose';
         }
+
+        return "game over";
     }
 }
