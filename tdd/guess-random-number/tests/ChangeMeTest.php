@@ -20,6 +20,6 @@ final class ChangeMeTest extends TestCase
     {
         $changeMe = new ChangeMe();
 
-        self::assertTrue($changeMe->game());
+        self::assertTrue($changeMe->game(5));
     }
 }

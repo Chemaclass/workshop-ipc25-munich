@@ -11,8 +11,12 @@ final class ChangeMe
         return true;
     }
 
-    public function game(): bool
+    public function game(int $number): bool
     {
-        return true;
+        if($number === 5)
+        {
+            return true;
+        }
+        return false;
     }
 }
