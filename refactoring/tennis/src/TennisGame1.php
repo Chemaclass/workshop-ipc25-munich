@@ -37,7 +37,12 @@ class TennisGame1 implements TennisGame
         if ($this->playerOneScore >= 4 || $this->playerTwoScore >= 4) {
             return $this->advantageOrWin();
         } 
-        return $this->getScoreName();
+
+        return sprintf(
+            '%s-%s', 
+            $this->getPlayerScore($this->playerOneScore),
+            $this->getPlayerScore($this->playerTwoScore)
+        );
         
 
     }
@@ -59,14 +64,6 @@ class TennisGame1 implements TennisGame
                 $score = sprintf($minusResult === -1 ? 'Advantage %s' : 'Win for %s', $this->player2Name);
             }
             return $score;
-    }
-
-    private function getScoreName (): string {
-        return sprintf(
-            '%s-%s', 
-            $this->getPlayerScore($this->playerOneScore),
-            $this->getPlayerScore($this->playerTwoScore)
-        );
     }
 
     private function getPlayerScore(int $score): string 
