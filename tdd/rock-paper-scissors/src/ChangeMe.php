@@ -13,6 +13,6 @@ final class ChangeMe
 
     public function getItems(): array
     {
-        return [];
+        return ['scissors'];
     }
 }
