@@ -16,6 +16,10 @@ final class RockPaperScissorsGame
             return 'Player 1';
         }
 
+        if($playerOne === 'scissors' && $playerTwo === 'paper') {
+            return 'Player 1';
+        }
+
         return 'Player 2';
 
     }
