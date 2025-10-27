@@ -15,4 +15,11 @@ final class ChangeMeTest extends TestCase
 
         self::assertTrue($changeMe->changeMe());
     }
+
+    public function test_number_five()
+    {
+        $changeMe = new ChangeMe();
+
+        self::assertTrue($changeMe->game());
+    }
 }
