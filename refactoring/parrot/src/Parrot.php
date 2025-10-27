@@ -44,7 +44,7 @@ class Parrot
         return match ($this->type) {
             ParrotTypeEnum::EUROPEAN => 'Sqoork!',
             ParrotTypeEnum::AFRICAN => 'Sqaark!',
-            ParrotTypeEnum::NORWEGIAN_BLUE => $this->voltage > 0 ? 'Bzzzzzz' : '...',
+            ParrotTypeEnum::NORWEGIAN_BLUE => $this->getCryNorwegianBlue(),
             default => throw new Exception('Should be unreachable'),
         };
     }
@@ -61,5 +61,9 @@ class Parrot
 
     private function getSpeedNorwegianBlue(): float {
         return $this->isNailed ? 0 : $this->getBaseSpeedWith($this->voltage);
+    }
+
+    private function getCryNorwegianBlue(): string {
+      return $this->voltage > 0 ? 'Bzzzzzz' : '...';
     }
 }
