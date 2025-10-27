@@ -14,5 +14,14 @@ final class GessingNumberGameTest extends TestCase
         $changeMe = new GessingNumberGame();
 
         self::assertEquals(GessingNumberGame::WIN, $changeMe->guessNumber(5));
+    }   
+
+    public function test_multiple_guesses(): void
+    {
+        $changeMe = new GessingNumberGame();
+
+        self::assertEquals(GessingNumberGame::WIN, $changeMe->guessNumber(10));
+        self::assertEquals(GessingNumberGame::WIN, $changeMe->guessNumber(3));
+        self::assertEquals(GessingNumberGame::WIN, $changeMe->guessNumber(5));
     }
 }

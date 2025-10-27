@@ -8,7 +8,13 @@ final class GessingNumberGame
 {
     public const WIN = 'You win!';
 
-    public function guessNumber(int $number): string
+    public function __construtor(
+        private readonly int $number
+    )
+    {
+    }
+
+    public function guessNumber(int $guessNumber): string
     {
         return self::WIN;
     }
