@@ -6,6 +6,7 @@ namespace ParrotTests;
 
 use Parrot\AfricanParrot;
 use Parrot\EuropeanParrot;
+use Parrot\NorwegianBlueParrot;
 use Parrot\Parrot;
 use Parrot\ParrotTypeEnum;
 use PHPUnit\Framework\TestCase;
@@ -38,19 +39,19 @@ class ParrotTest extends TestCase
 
     public function testSpeedNorwegianBlueParrotNailed(): void
     {
-        $parrot = new Parrot(ParrotTypeEnum::NORWEGIAN_BLUE, 0, 1.5, true);
+        $parrot = new NorwegianBlueParrot(1.5, true);
         self::assertSame(0.0, $parrot->getSpeed());
     }
 
     public function testSpeedNorwegianBlueParrotNotNailed(): void
     {
-        $parrot = new Parrot(ParrotTypeEnum::NORWEGIAN_BLUE, 0, 1.5, false);
+        $parrot = new NorwegianBlueParrot(1.5, false);
         self::assertSame(18.0, $parrot->getSpeed());
     }
 
     public function testSpeedNorwegianBlueParrotNotNailedHighVoltage(): void
     {
-        $parrot = new Parrot(ParrotTypeEnum::NORWEGIAN_BLUE, 0, 4, false);
+        $parrot = new NorwegianBlueParrot(4, false);
         self::assertSame(24.0, $parrot->getSpeed());
     }
 
@@ -68,13 +69,13 @@ class ParrotTest extends TestCase
 
     public function testGetCryOfNorwegianBlueHighVoltage(): void
     {
-        $parrot = new Parrot(ParrotTypeEnum::NORWEGIAN_BLUE, 0, 4, false);
+        $parrot = new NorwegianBlueParrot(4, false);
         self::assertSame('Bzzzzzz', $parrot->getCry());
     }
 
     public function testGetCryOfNorwegianBlueNoVoltage(): void
     {
-        $parrot = new Parrot(ParrotTypeEnum::NORWEGIAN_BLUE, 0, 0, false);
+        $parrot = new NorwegianBlueParrot(0, false);
         self::assertSame('...', $parrot->getCry());
     }
 }

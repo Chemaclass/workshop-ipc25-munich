@@ -8,30 +8,9 @@ use Exception;
 
 class Parrot
 {
-    public const LOAD_FACTOR = 9.0;
     public const BASE_SPEED = 12.0;
-    public const BASE_SPEED_FACTOR = 24.0;
 
-
-    public function __construct(
-        private ParrotTypeEnum $type,
-        private int $numberOfCoconuts,
-        private float $voltage,
-        private bool $isNailed
-    ) {
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function getSpeed(): float
-    {
-        return match ($this->type) {
-            ParrotTypeEnum::EUROPEAN => self::BASE_SPEED,
-            ParrotTypeEnum::AFRICAN => max(0, self::BASE_SPEED - self::LOAD_FACTOR * $this->numberOfCoconuts),
-            ParrotTypeEnum::NORWEGIAN_BLUE => $this->isNailed ? 0 : $this->getBaseSpeedWithVoltage($this->voltage),
-        };
-    }
+    abstract public function getSpeed(): float
 
     /**
      * @throws Exception
