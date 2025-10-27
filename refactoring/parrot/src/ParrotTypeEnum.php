@@ -9,11 +9,9 @@ namespace Parrot;
  *
  * @package Parrot
  */
-abstract class ParrotTypeEnum
+Enum ParrotTypeEnum
 {
-    public const EUROPEAN = 0;
-
-    public const AFRICAN = 1;
-
-    public const NORWEGIAN_BLUE = 2;
+    public const int EUROPEAN = 0;
+    public const int AFRICAN = 1;
+    public const int NORWEGIAN_BLUE = 2;
 }
