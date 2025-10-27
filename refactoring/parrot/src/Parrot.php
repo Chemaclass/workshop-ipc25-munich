@@ -14,10 +14,7 @@ class Parrot
 
 
     public function __construct(
-        /**
-         * @var int ParrotTypeEnum
-         */
-        private int $type,
+        private ParrotTypeEnum $type,
         private int $numberOfCoconuts,
         private float $voltage,
         private bool $isNailed
@@ -32,8 +29,7 @@ class Parrot
         return match ($this->type) {
             ParrotTypeEnum::EUROPEAN => self::BASE_SPEED,
             ParrotTypeEnum::AFRICAN => max(0, self::BASE_SPEED - self::LOAD_FACTOR * $this->numberOfCoconuts),
-            ParrotTypeEnum::NORWEGIAN_BLUE => $this->isNailed ? 0 : $this->getBaseSpeedWith($this->voltage),
-            default => throw new Exception('Should be unreachable'),
+            ParrotTypeEnum::NORWEGIAN_BLUE => $this->isNailed ? 0 : $this->getBaseSpeedWithVoltage($this->voltage),
         };
     }
 
@@ -45,12 +41,11 @@ class Parrot
         return match ($this->type) {
             ParrotTypeEnum::EUROPEAN => 'Sqoork!',
             ParrotTypeEnum::AFRICAN => 'Sqaark!',
-            ParrotTypeEnum::NORWEGIAN_BLUE => $this->voltage > 0 ? 'Bzzzzzz' : '...',
-            default => throw new Exception('Should be unreachable'),
+            ParrotTypeEnum::NORWEGIAN_BLUE => $this->voltage > 0 ? 'Bzzzzzz' : '...'
         };
     }
 
-    private function getBaseSpeedWith(float $voltage): float
+    private function getBaseSpeedWithVoltage(float $voltage): float
     {
         return min(self::BASE_SPEED_FACTOR, $voltage * self::BASE_SPEED);
     }
