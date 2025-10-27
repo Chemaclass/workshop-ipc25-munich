@@ -30,4 +30,11 @@ final class ChangeMeTest extends TestCase
 
         self::assertTrue($kata->player1Wins('paper', 'rock'));
     }
+
+    public function test_rock_vs_paper(): void
+    {
+        $kata = new Kata();
+
+        self::assertFalse($kata->player1Wins('rock', 'paper'));
+    }
 }
