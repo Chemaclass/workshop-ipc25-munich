@@ -18,6 +18,9 @@ final class GuessingNumberGame
             return "win";
         }
         if ($playerNumber < $this->randomNumber) {
+            return 'higher';
+        }
+        if ($playerNumber > $this->randomNumber) {
             return 'lower';
         }
         return "loose";

@@ -20,6 +20,22 @@ final class GuessingNumberGameTest extends TestCase
     {
         $game = new GuessingNumberGame(5);
 
-        self::assertEquals('lower', $game->play(4));
+        self::assertEquals('higher', $game->play(4));
+    }
+    
+    public function test_higher_number(): void
+    {
+        $game = new GuessingNumberGame(5);
+
+        self::assertEquals('lower', $game->play(6));
+    }
+
+    public function test_3_attempts(): void
+    {
+        $game = new GuessingNumberGame(5);
+
+        self::assertEquals('lower', $game->play(6));
+        self::assertEquals('higher', $game->play(4));
+        self::assertEquals('higher', $game->play(7));
     }
 }
