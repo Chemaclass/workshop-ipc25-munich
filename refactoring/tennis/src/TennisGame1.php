@@ -6,9 +6,9 @@ namespace TennisGame;
 
 class TennisGame1 implements TennisGame
 {
-    private int $m_score1 = 0;
+    private int $player1Score = 0;
 
-    private int $m_score2 = 0;
+    private int $player2Score = 0;
 
     public function __construct(
         private string $player1Name,
@@ -18,19 +18,21 @@ class TennisGame1 implements TennisGame
 
     public function wonPoint(string $playerName): void
     {
-        if ($playerName === 'player1') {
-            $this->m_score1++;
+        if ($playerName === $this->player1Name) {
+            $this->player1Score++;
+        } else if ($playerName === $this->player2Name) {
+            $this->player2Score++;
         } else {
-            $this->m_score2++;
+            throw new \InvalidArgumentException('Invalid player name');
         }
     }
 
     public function getScore(): string
     {
         $score = '';
-        if ($this->m_score1 === $this->m_score2) {
+        if ($this->player1Score === $this->player2Score) {
             $score = $this->draw();
-        } elseif ($this->m_score1 >= 4 || $this->m_score2 >= 4) {
+        } elseif ($this->player1Score >= 4 || $this->player2Score >= 4) {
             $score = $this->getMinusResult();
         } else {
             for ($i = 1; $i < 3; $i++) {
@@ -42,7 +44,7 @@ class TennisGame1 implements TennisGame
 
     private function draw(): string
     {
-        return match ($this->m_score1) {
+        return match ($this->player1Score) {
             0 => 'Love-All',
             1 => 'Fifteen-All',
             2 => 'Thirty-All',
@@ -52,7 +54,7 @@ class TennisGame1 implements TennisGame
 
     private function getMinusResult(): string
     {
-        $minusResult = $this->m_score1 - $this->m_score2;
+        $minusResult = $this->player1Score - $this->player2Score;
 
         if ($minusResult === 1) {
             return 'Advantage player1';
@@ -72,10 +74,10 @@ class TennisGame1 implements TennisGame
     private function getScoreWord(int $i, string $score): string
     {
         if ($i === 1) {
-            $tempScore = $this->m_score1;
+            $tempScore = $this->player1Score;
         } else {
             $score     .= '-';
-            $tempScore = $this->m_score2;
+            $tempScore = $this->player2Score;
         }
 
         $tempScoreWord = match ($tempScore) {
