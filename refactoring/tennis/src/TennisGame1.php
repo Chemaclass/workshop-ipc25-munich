@@ -28,7 +28,7 @@ class TennisGame1 implements TennisGame
     public function getScore(): string
     {
         if ($this->player1Score === $this->player2Score) {
-            return $this->draw();
+            return $this->getDrawResult();
         }
         if ($this->player1Score >= 4 || $this->player2Score >= 4) {
             return $this->getMinusResult();
@@ -36,7 +36,7 @@ class TennisGame1 implements TennisGame
         return $this->getScoreWord();
     }
 
-    private function draw(): string
+    private function getDrawResult(): string
     {
         return match ($this->player1Score) {
             0 => 'Love-All',
@@ -51,23 +51,36 @@ class TennisGame1 implements TennisGame
         $minusResult = $this->player1Score - $this->player2Score;
 
         if ($minusResult === 1) {
-            return 'Advantage ' . $this->player1Name;
+            return $this->getAdvantageResult($this->player1Name);
         }
 
         if ($minusResult === -1) {
-            return 'Advantage ' . $this->player2Name;
+            return $this->getAdvantageResult($this->player2Name);
         }
 
         if ($minusResult >= 2) {
-            return 'Win for ' . $this->player1Name;
+            return $this->getWinResult($this->player1Name);
         }
 
-        return 'Win for ' . $this->player2Name;
+        return $this->getWinResult($this->player2Name); 
+    }
+
+    private function getAdvantageResult($playerName): string
+    {
+        return sprintf("Advantage %s", $playerName);
+    }
+
+    private function getWinResult($playerName): string {
+        return sprintf("Win for %s", $playerName);
     }
 
     private function getScoreWord(): string
     {
-        return $this->getTempScoreWord($this->player1Score) . "-" . $this->getTempScoreWord($this->player2Score);
+        return sprintf(
+            "%s-%s",
+            $this->getTempScoreWord($this->player1Score),
+            $this->getTempScoreWord($this->player2Score)
+        );
     }
 
     private function getTempScoreWord(int $playerScore): string {
