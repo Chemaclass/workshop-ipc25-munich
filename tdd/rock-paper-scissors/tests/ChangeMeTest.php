@@ -13,6 +13,6 @@ final class ChangeMeTest extends TestCase
     {
         $kata = new Kata();
 
-        self::assertTrue($kata->check('rock', 'scissor'));
+        self::assertTrue($kata->player1Wins('rock', 'scissors'));
     }
 }
