@@ -107,3 +107,9 @@ To remove all Docker containers from the workshop:
 ```bash
 docker rm -f ipc25-parrot ipc25-tennis ipc25-rps ipc25-guess-number
 ```
+
+---
+
+### Extra
+
+- [Workshop Presentation Slides](https://docs.google.com/presentation/d/1CUNLxqOB1VnRUVG34Xz_gWiFiplwI_OPKhkzVZS9Two/edit?usp=sharing)
